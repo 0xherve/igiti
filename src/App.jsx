@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
-import { CustomerReviews, Footer, Hero,
-PopularProducts, Services, SuperQuality,
-SpecialOffer, Subscribe} from "./sections";
+import { OurTeam,Footer, Hero,
+PopularProducts, Services, SuperQuality, Contact} from "./sections";
 
 const App = () =>(
 <main className="relative mx-3">
@@ -17,14 +16,11 @@ const App = () =>(
       <section className="padding-x py-10">
         <Services/>
       </section>
-      <section className="padding">
-        <SpecialOffer/>
-      </section>
       <section className="padding bg-pale-blue">
-        <CustomerReviews/>
+        <OurTeam/>
       </section>
       <section className="padding-x sm:py-32 py-16 w-full">
-        <Subscribe/>
+        <Contact/>
       </section>
       <section className="padding-x padding-t pb-8 bg-black">
         <Footer/>

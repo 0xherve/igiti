@@ -5,19 +5,15 @@ const SuperQuality = () => {
   return (
     
     <section id="about-us" 
-    className="flex justify-between items-center max-lg:flex-col sm:flex-row gap-10 w-full max-container">
-      <div className="flex flex-1 flex-col">
-        <h2 className="font-palanquin font-bold capitalize text-4xl lg:max-w-lg  ">
-           We Provide You 
-          <br/>
-          <span className="text-coral-red inline-block z-10 pr-5">Super Quality</span>shoes. </h2>
-          <p className="mt-4 lg:max-w-lg info-text">
-          Beginning with a commitment to providing premium comfort and style,
-           our Nike team is dedicated to inspiring everyone,
-           to embrace their unique journeys through our cutting-edge sports apparel and footwear. </p>
-           <p className='mt-6 lg:max-w-lg info-text'>Our dedication to detail and excellence ensures your satisfaction.</p>
-          <div className='mt-11'>
-          <Button label="View Details"></Button>
+    className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container">
+      <div className="flex flex-1 flex-col gap-10">
+        <h2 className="font-palanquin font-bold capitalize text-4xl lg:max-w-lg">
+           Igniting <span> </span>
+          <span className="text-orange-500 inline-block"> Creativity</span>, celebrating culture. </h2>
+          <p className="lg:max-w-lg info-text">
+          With a commitment to providing high-quality, culturally relevant products, our team is dedicated to creating experiences that enrich lives and spark imagination.</p>
+          <div>
+          <Button label="Shop Now"></Button>
           </div>
       </div>
       <div className='flex-1 flex justify-center items-center'>

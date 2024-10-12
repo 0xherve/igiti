@@ -1,5 +1,5 @@
-import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
-import { bigShoe1, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
+import { facebook, instagram, support, truckFast, twitter } from "../assets/icons";
+import { bigShoe1, bigShoe2, bigShoe3, hubert, paula, brandi, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
 
 export const navLinks = [
     { href: "#home", label: "Home" },
@@ -23,11 +23,6 @@ export const shoes = [
     },
 ];
 
-export const statistics = [
-    { value: '1k+', label: 'Brands' },
-    { value: '500+', label: 'Shops' },
-    { value: '250k+', label: 'Customers' },
-];
 
 export const products = [
     {
@@ -55,34 +50,32 @@ export const products = [
 export const services = [
     {
         imgURL: truckFast,
-        label: "Free shipping",
-        subtext: "Enjoy seamless shopping with our complimentary shipping service."
-    },
-    {
-        imgURL: shieldTick,
-        label: "Secure Payment",
-        subtext: "Experience worry-free transactions with our secure payment options."
+        label: "Partner with Us",
+        subtext: "Partner with us to bring engaging and culturally relevant education. Enjoy  bulk order discounts, and custom options. Let's work together to spread African culture through entertaining education."
     },
     {
         imgURL: support,
         label: "Love to help you",
-        subtext: "Our dedicated team is here to assist you every step of the way."
+        subtext: "Our dedicated team is here to assist you every step of the way. Get expert assistance for all your questions and concerns"
     },
 ];
 
-export const reviews = [
+export const team = [
     {
-        imgURL: customer1,
-        customerName: 'Morich Brown',
-        rating: 4.5,
-        feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
-    },
+        imgURL: hubert,
+        name: 'Habiyambere Muhire Hubert',
+        role: 'Managing Director',
+        },
     {
-        imgURL: customer2,
-        customerName: 'Lota Mongeskar',
-        rating: 4.5,
-        feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
-    }
+        imgURL: paula,
+        name: 'Paula Brooks Aziz',
+        role: 'Chairperson',
+        },
+    {
+        imgURL: brandi,
+        name: 'Brandi McLellan Brooks',
+        role: 'Internatinal Distribution Director',
+        }
 ];
 
 
@@ -111,8 +104,8 @@ export const footerLinks = [
     {
         title: "Get in touch",
         links: [
-            { name: "customer@nike.com", link: "mailto:customer@nike.com" },
-            { name: "+92554862354", link: "tel:+92554862354" },
+            { name: "customer@nike.com"},
+            { name: "+92554862354"},
         ],
     },
 ];
