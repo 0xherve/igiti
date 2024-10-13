@@ -33,7 +33,7 @@ const Hero = () => {
         sm:left-[10%] max-sm:px-6 items-center justify-center ">
         {shoes.map((shoe)=>(
           <div key={shoe}>
-            <ShoeCard imgURL={shoe} 
+            <ShoeCard imgURL={shoe} key={shoe.thumbnail} 
             changeBigShoeImg={(shoe)=>setBigShoeImg(shoe)} 
             bigShoeImg={bigShoeImg}/></div>
         ))}  

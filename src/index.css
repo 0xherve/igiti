@@ -55,4 +55,7 @@
   .info-text {
     @apply font-montserrat text-slate-gray text-lg leading-7;
   }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 bg-white placeholder-opacity-75 focus:outline-none;
+  }
 }
