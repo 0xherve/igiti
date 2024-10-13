@@ -8,11 +8,11 @@ const Contact = () => {
   className="max-container flex justify-between items-center max-lg:flex-col gap-10"
 >
   <h3
-    className="text-4xl leading-[68px] lg:max-w-md font-palanquin font-bold">
+    className="text-4xl w-[1/4] leading-[68px] lg:max-w-md font-palanquin font-bold">
     Contact Us
   </h3>
   <div >
-    
+
 
     <Button label='Send Message' iconURL={arrowRight} full width></Button>
   </div>
