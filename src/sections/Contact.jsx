@@ -53,7 +53,7 @@ const Contact = () => {
   return (
     <section
       id="contact-us"
-      className="max-container flex justify-center items-center rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 p-10"
+      className="max-container flex justify-center items-center shadow-xl rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 p-10"
     >
       <div className="relative min-h-screen flex gap-5 items-center justify-center flex-col">
         <h3 className="text-4xl w-[1/4] leading-[68px] lg:max-w-md font-palanquin font-bold">

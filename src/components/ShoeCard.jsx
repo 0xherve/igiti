@@ -7,12 +7,12 @@ const handleClick= ()=>{
 
   return (
     <div className={`border-2 rounded-xl 
-    ${bigShoeImg === imgURL.bigShoe ?'border-coral-red' : 'border-transparent' } 
+    ${bigShoeImg === imgURL.bigShoe ?'border-orange-500' : 'border-gray-300' } 
    cursor-pointer max-sm:flex-1 `} onClick={handleClick}>
-    <div className="flex justify-center items-center
-    bg-card bg-center bg-cover sm:width-40 sm:height-40 rounded-xl max-sm:p-4 ">
+    <div className="flex justify-center items-center object-contain
+    bg-center  sm:width-40 sm:height-40 rounded-xl ">
         <img src={imgURL.thumbnail} alt="Shoe Collection"
-        width={127} height={103} className=" object-contain" />    
+        width={127} height={103} className="rounded-xl" />    
     </div>
     </div>
   )

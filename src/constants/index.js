@@ -1,5 +1,5 @@
 import { facebook, instagram, support, truckFast, twitter } from "../assets/icons";
-import { bigShoe1, bigShoe2, bigShoe3, hubert, paula, brandi, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
+import { kids, adults, hubert, paula, brandi, green, enock, obed, adultPuzzle, kidsPuzzle} from "../assets/images";
 
 export const navLinks = [
     { href: "#home", label: "Home" },
@@ -8,43 +8,29 @@ export const navLinks = [
     { href: "#contact-us", label: "Contact Us" },
 ];
 
-export const shoes = [
+export const puzzles = [
     {
-        thumbnail: thumbnailShoe1,
-        bigShoe: bigShoe1,
+        thumbnail: kids,
+        bigShoe: kids,
     },
     {
-        thumbnail: thumbnailShoe2,
-        bigShoe: bigShoe2,
-    },
-    {
-        thumbnail: thumbnailShoe3,
-        bigShoe: bigShoe3,
+        thumbnail: adults,
+        bigShoe: adults,
     },
 ];
 
 
 export const products = [
     {
-        imgURL: shoe4,
+        imgURL: kidsPuzzle,
         name: "Nike Air Jordan-01",
         price: "$200.20",
     },
     {
-        imgURL: shoe5,
+        imgURL: adultPuzzle,
         name: "Nike Air Jordan-10",
         price: "$210.20",
     },
-    {
-        imgURL: shoe6,
-        name: "Nike Air Jordan-100",
-        price: "$220.20",
-    },
-    {
-        imgURL: shoe7,
-        name: "Nike Air Jordan-001",
-        price: "$230.20",
-    }
 ];
 
 export const services = [
@@ -62,20 +48,43 @@ export const services = [
 
 export const team = [
     {
+        index:0,
         imgURL: hubert,
         name: 'Habiyambere Muhire Hubert',
         role: 'Managing Director',
         },
     {
+        index:1,
         imgURL: paula,
         name: 'Paula Brooks Aziz',
         role: 'Chairperson',
         },
+        {
+            index: 2,
+            imgURL: enock,
+            name: 'Akimana Enock',
+            role: 'Finance and Marketing Director',
+            },
     {
+        index: 3,
         imgURL: brandi,
         name: 'Brandi McLellan Brooks',
         role: 'Internatinal Distribution Director',
-        }
+        },
+        {
+            index: 4,
+            imgURL: green,
+            name: 'Edris Christine Green',
+            role: 'US Marketing Director',
+            },
+        {
+            index: 5,
+            imgURL: obed,
+            name: 'Munyakuri Obed',
+            role: 'Product Development Director',
+            },
+            
+
 ];
 
 

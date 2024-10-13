@@ -1,12 +1,12 @@
 import { useState } from "react"
 import Button from "../components/Button"
 import { arrowRight } from '../assets/icons'
-import { shoes } from '../constants'
-import { bigShoe1 } from "../assets/images"
+import { puzzles } from '../constants'
+import { adults } from "../assets/images"
 import ShoeCard from "../components/ShoeCard"
 
 const Hero = () => {
-  const [bigShoeImg, setBigShoeImg] = useState(bigShoe1)
+  const [product, setProduct] = useState(adults)
   return (
     <section id="home"
      className="w-full flex lg:flex-row flex-col
@@ -26,16 +26,16 @@ const Hero = () => {
         </div>
         <div className="relative flex-1 flex 
         justify-center items-center lg:min-h-full
-        max-lg:py-40 bg-primary bg-hero bg-cover bg-center">
-        <img src={bigShoeImg} alt="Shoe Collection" width={610} height={500} 
-        className="object-contain relative z-5 " />
-        <div className="flex sm:gap-6 absolute -bottom-[8%]
+        max-lg:py-4  bg-center">
+        <img src={product} alt="Shoe Collection" width={610} height={500} 
+        className="object-contain relative z-5 rounded-3xl" />
+        <div className="flex sm:gap-6 absolute -bottom-[7%] max-lg:bottom-[-15%] ml-[20%] max-sm:gap-5
         sm:left-[10%] max-sm:px-6 items-center justify-center ">
-        {shoes.map((shoe)=>(
-          <div key={shoe}>
-            <ShoeCard imgURL={shoe} key={shoe.thumbnail} 
-            changeBigShoeImg={(shoe)=>setBigShoeImg(shoe)} 
-            bigShoeImg={bigShoeImg}/></div>
+        {puzzles.map((item)=>(
+          <div key={item}>
+            <ShoeCard imgURL={item} key={item.thumbnail} 
+            changeBigShoeImg={(item)=>setProduct(item)} 
+            bigShoeImg={product}/></div>
         ))}  
         </div>   
         </div>
