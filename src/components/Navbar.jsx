@@ -6,21 +6,20 @@ import { Link } from 'react-scroll'
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between items-center relative w-full padding-x gap-5'>
+    <nav className='nav'>
           <a href="/">
                 <img src={headerLogo} alt="Nike" 
                 width={130} height={29} />
           </a>
-          <ul className='flex-1 flex justify-center items-center gap-16 max-md:hidden'>
+          <ul className='nav-list'>
             {navLinks.map((item=>(
               <li key={item.label} >
-                <Link to={item.href} className='font-montserrat 
-                leading-normal text-md font-bold text-slate-gray'>{item.label}</Link>
+                <Link to={item.href} className='nav-li'>{item.label}</Link>
               </li>
             )))}
+            <li className='right-12 absolute'><Button label="Shop Now" /></li>
           </ul>
-          
-          <Button label="Shop Now" className="flex flex-1 max-lg:hidden"/>
+        
           <div className='hidden max-md:block'>
             <img src={hamburger} alt="hamburger" width={25} height={25}/>
           </div>

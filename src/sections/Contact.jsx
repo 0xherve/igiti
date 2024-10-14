@@ -52,10 +52,10 @@ const Contact = () => {
 
   return (
     <section
-      className="max-container flex justify-center items-center shadow-xl bg-[#fff5f1] rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 lg:p-10 max-lg:w-[75%]"
+      className="contact"
     >
-      <div className="relative min-h-screen flex gap-5 items-center justify-center flex-col">
-        <h3 className="text-4xl w-[1/4] leading-[68px] lg:max-w-md font-palanquin font-bold">
+      <div className="contact-container">
+        <h3 className="contact-container_h3">
           Let's Talk
         </h3>
         <p>
@@ -105,7 +105,7 @@ const Contact = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              className="input-field appearance-none"
+              className="input-field "
               placeholder="Hi, I am interested in..."
               rows={5} // Adjust rows for desired height
               required

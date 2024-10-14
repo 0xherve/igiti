@@ -4,7 +4,7 @@ import { OurTeam,Footer, Hero,
 PopularProducts, Services, SuperQuality, Contact} from "./sections";
 
 const App = () =>(
-<main className="relative mx-3">
+<main className="relative mx-1">
     <Navbar/>
     <Element name="hero" className="xl:padding-l wide:padding-r padding-b">
       <Hero/></Element>

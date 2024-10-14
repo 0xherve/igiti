@@ -2,7 +2,7 @@
 
 const PopularProductCard = ( {imgURL, name, price}) => {
   return (
-    <div className="flex flex-1 shadow-lg p-10 rounded-3xl flex-col w-full max-sm:w-full gap-5 justify-between items-center">
+    <div className="product-card">
       <img src={imgURL} alt={name} className='w-[282px] h-[282px] rounded-xl' />
       <div className=" flex justify-start gap-2 ">
         {/* <img src={star} alt="rating" width={24} height={24} />
