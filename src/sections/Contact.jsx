@@ -52,8 +52,7 @@ const Contact = () => {
 
   return (
     <section
-      id="contact-us"
-      className="max-container flex justify-center items-center shadow-xl rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 p-10"
+      className="max-container flex justify-center items-center shadow-xl bg-[#fff5f1] rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 lg:p-10 max-lg:w-[75%]"
     >
       <div className="relative min-h-screen flex gap-5 items-center justify-center flex-col">
         <h3 className="text-4xl w-[1/4] leading-[68px] lg:max-w-md font-palanquin font-bold">
@@ -79,7 +78,7 @@ const Contact = () => {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="input-field" // 
+              className="input-field" 
               placeholder="Enter your full name"
               required
             />

@@ -1,30 +1,31 @@
 import Navbar from "./components/Navbar";
+import { Element } from "react-scroll";
 import { OurTeam,Footer, Hero,
 PopularProducts, Services, SuperQuality, Contact} from "./sections";
 
 const App = () =>(
 <main className="relative mx-3">
     <Navbar/>
-    <section className="xl:padding-l wide:padding-r padding-b">
-      <Hero/></section>
-      <section className="padding bg-pale-blue max-xl:mt-16">
+    <Element name="hero" className="xl:padding-l wide:padding-r padding-b">
+      <Hero/></Element>
+      <Element name="products" className="padding bg-pale-blue max-xl:mt-8">
         <PopularProducts/>
-      </section>
-      <section className="padding">
+      </Element>
+      <Element name="about-us" className="padding">
         <SuperQuality/>
-      </section>
-      <section className="padding-x py-10">
+      </Element>
+      <Element name='services' className="padding-x py-3 mb-8">
         <Services/>
-      </section>
-      <section className="padding bg-pale-blue">
+      </Element>
+      <Element name="team" className="padding bg-pale-blue">
         <OurTeam/>
-      </section>
-      <section className="padding-x sm:py-32 py-16 w-full">
+      </Element>
+      <Element name="contact" className="padding-x sm:py-32 py-16 w-full">
         <Contact/>
-      </section>
-      <section className="padding-x padding-t pb-8 bg-black">
+      </Element>
+      <Element className="padding-x padding-t pb-8 bg-black">
         <Footer/>
-      </section>
+      </Element>
   </main>
 )
 export default App;

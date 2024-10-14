@@ -1,19 +1,20 @@
 import { copyrightSign } from '../assets/icons'
 import {footerLogo} from '../assets/images'
 import {footerLinks, socialMedia} from '../constants'
+import {Link } from 'react-scroll'
 
 const Footer = () => {
   return (
     <footer className="max-container">
       <div className="flex justify-between items-start
-      gap-20 flex-wrap max-lg:flex-col">
+      gap-24 flex-wrap max-md:flex-col max-md:ml-5">
         <div className="flex flex-col items-start">
           <a href="/">
             <img src={footerLogo} width={150} height={46}/>
           </a>
           <p className='mt-6 text-base leading-7 font-montserrat
-          text-white-400 sm:max-w-sm '>
-            Discover Africa Piece by Piece
+          text-white-400 font-bold '>
+            Discover Africa, Piece by Piece
             </p>
             <div className='flex items-center gap-5 mt-8'>
               {socialMedia.map((icon)=>(
@@ -25,8 +26,8 @@ const Footer = () => {
               ))}
             </div>
         </div>
-        <div className='flex flex-1 justify-between
-                  lg:gap-10 gap-20 flex-wrap'>
+        <div className='flex flex-1 justify-center max-md:gap-12
+                  gap-10 flex-wrap'>
                     {footerLinks.map((section)=>(
                       <div key={section}>
                         <h4 className='text-white 
@@ -34,11 +35,11 @@ const Footer = () => {
                         font-medium mb-6 '>
                         {section.title}</h4>
                         <ul>{section.links.map((link)=>(
-                          <li className='mt-3 text-white-400 
+                          <li className='mt-3 text-gray-400 font-medium 
                           font font-montserrat text-base leading-normal
                           hover:text-slate-gray cursor-pointer'
                           key={link.name}>
-                            <a href="">{link.name}</a>
+                            <Link key={link.name} to={link.link}>{link.name}</Link>
                           </li>
                         ))}</ul>
                       </div>

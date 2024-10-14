@@ -2,10 +2,10 @@ import { facebook, instagram, support, truckFast, twitter } from "../assets/icon
 import { kids, adults, hubert, paula, brandi, green, enock, obed, adultPuzzle, kidsPuzzle} from "../assets/images";
 
 export const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about-us", label: "About Us" },
-    { href: "#products", label: "Products" },
-    { href: "#contact-us", label: "Contact Us" },
+    { href: "hero", label: "Home" },
+    { href: "about-us", label: "About Us" },
+    { href: "products", label: "Products" },
+    { href: "contact", label: "Contact Us" },
 ];
 
 export const puzzles = [
@@ -23,13 +23,13 @@ export const puzzles = [
 export const products = [
     {
         imgURL: kidsPuzzle,
-        name: "Nike Air Jordan-01",
-        price: "$200.20",
+        name: "Kids Puzzle",
+        price: "$29.99",
     },
     {
         imgURL: adultPuzzle,
-        name: "Nike Air Jordan-10",
-        price: "$210.20",
+        name: "Adult Puzzle",
+        price: "$39.99",
     },
 ];
 
@@ -90,37 +90,33 @@ export const team = [
 
 export const footerLinks = [
     {
-        title: "Products",
+        title: "Help",
         links: [
-            { name: "Air Force 1", link: "/" },
-            { name: "Air Max 1", link: "/" },
-            { name: "Air Jordan 1", link: "/" },
-            { name: "Air Force 2", link: "/" },
-            { name: "Nike Waffle Racer", link: "/" },
-            { name: "Nike Cortez", link: "/" },
+            { name: "About us", link: "about-us" },
+            { name: "Conatct Us", link: "contact" },
+            { name: "How it works", link: "/" },
+            { name: "Privacy policy", link: "/" },
+            // { name: "Payment policy", link: "/" },
         ],
     },
     {
-        title: "Help",
+        title: "Products",
         links: [
-            { name: "About us", link: "/" },
-            { name: "FAQs", link: "/" },
-            { name: "How it works", link: "/" },
-            { name: "Privacy policy", link: "/" },
-            { name: "Payment policy", link: "/" },
+            { name: "Adults Puzzle", link: "#products" },
+            { name: "Kids Puzzle", link: "#products" },
         ],
     },
     {
         title: "Get in touch",
         links: [
-            { name: "customer@nike.com"},
-            { name: "+92554862354"},
+            { name: "hub.init.business@gmail.com"},
+            { name: "+250788444011"},
         ],
     },
 ];
 
 export const socialMedia = [
-    { src: facebook, alt: "facebook logo" },
-    { src: twitter, alt: "twitter logo" },
-    { src: instagram, alt: "instagram logo" },
+    { src: facebook, alt: "facebook logo", link:'/'},
+    { src: twitter, alt: "twitter logo", link:'/' },
+    { src: instagram, alt: "instagram logo", link:'/' },
 ];
