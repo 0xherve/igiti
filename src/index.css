@@ -28,7 +28,7 @@
     @apply flex-1 flex justify-center items-center gap-8 max-lg:gap-10 max-sm:justify-start max-sm:ml-14 max-md:hidden
   }
   .nav-li{
-    @apply font-montserrat leading-normal font-bold text-slate-gray
+    @apply font-montserrat leading-normal font-bold text-slate-gray cursor-pointer
   }
   .hero{
     @apply w-full flex lg:flex-row flex-col justify-center min-h-screen gap-10 max-container
@@ -71,19 +71,22 @@
   .team-subtext{
     @apply info-text m-auto mt-4 max-w-lg text-center text-lg font-medium
   }
+  .member-container{
+    @apply grid grid-cols-3 gap-5 justify-between my-10 w-full
+  }
+
   .team-container{
-    @apply flex flex-1 justify-between gap-10
-    items-center max-md:flex-col overflow-x-scroll p-10
+    @apply flex flex-1 justify-between gap-5 
+    items-center z-10 overflow-x-scroll p-2.5
   }
   .member-card{
-    @apply flex justify-between max-w-full items-center min-w-max min-h-min
-    flex-col shadow-md rounded-2xl border-slate-500 
+    @apply flex flex-col justify-start items-center p-10 min-w-fit shadow-md rounded-2xl border-slate-500 lg:w-96 my-5 
   }
   .team-img{
-    @apply rounded-full object-cover w-36 h-36
+    @apply rounded-full object-cover w-36 h-36 mb-5
   }
   .member-info{
-    @apply p-8 flex flex-col justify-between items-center gap-2.5
+    @apply flex flex-col justify-between items-center gap-2
   }
   .member-info_h3{
     @apply mt-1 font-palanquin text-3xl
@@ -93,13 +96,13 @@
     @apply font-montserrat text-slate-gray font-medium mb-10
   }
   .contact{
-    @apply max-container flex justify-center items-center shadow-xl bg-[#fff5f1] max-lg:px-16 rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 lg:p-10 max-lg:w-[85%]
+    @apply max-container flex justify-center items-center shadow-xl bg-[#fff5f1] max-lg:px-8 rounded-3xl max-lg:flex-col gap-10 border-2 border-gray-200 lg:p-10 max-lg:w-[85%]
   }
   .contact-container{
     @apply relative min-h-screen flex gap-5 items-center justify-center flex-col
   }
   .contact-container_h3{
-    @apply text-4xl w-[1/4] leading-[68px] lg:max-w-md font-palanquin font-bold
+    @apply text-4xl w-[1/4] leading-[68px] lg:max-w-md font-palanquin font-semibold
   }
   .footer-brand{
     @apply flex justify-between items-start gap-24 flex-wrap max-md:flex-col max-md:ml-5

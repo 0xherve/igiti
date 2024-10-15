@@ -55,12 +55,12 @@ const Contact = () => {
       className="contact"
     >
       <div className="contact-container">
-        <h3 className="contact-container_h3">
+        <h3 className="contact-container_h3 ">
           Let's Talk
-        </h3>
+        </h3 >
         <p>
           Whether you are looking to buy our products, partner with us, or give us
-          feedback, we are pleased to hear from you.
+          feedback, we would like to hear from you.
         </p>
 
         <form
