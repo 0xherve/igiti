@@ -1,5 +1,4 @@
 import {headerLogo} from '../assets/images'
-import {hamburger} from '../assets/icons'
 import { navLinks } from '../constants'
 import Button from './Button'
 import { Link } from 'react-scroll'

@@ -1,4 +1,4 @@
-import { facebook, instagram, support, truckFast, twitter } from "../assets/icons";
+import { tiktok, instagram, support, truckFast, twitter } from "../assets/icons";
 import { kids, adults, hubert, paula, brandi, green, enock, obed, adultPuzzle, kidsPuzzle} from "../assets/images";
 
 export const navLinks = [
@@ -109,14 +109,14 @@ export const footerLinks = [
     {
         title: "Get in touch",
         links: [
-            { name: "hub.init.business@gmail.com"},
+            { name: "info@igitienterprises.com"},
             { name: "+250788444011"},
         ],
     },
 ];
 
 export const socialMedia = [
-    { src: facebook, alt: "facebook logo", link:'/'},
-    { src: twitter, alt: "twitter logo", link:'/' },
-    { src: instagram, alt: "instagram logo", link:'/' },
+    { src: tiktok, alt: "tiktok logo", link:'https://www.tiktok.com/@igitienterprises?is_from_webapp=1&sender_device=pc'},
+    { src: twitter, alt: "twitter logo", link:'https://x.com/Igiti_puzzles' },
+    { src: instagram, alt: "instagram logo", link:'https://www.instagram.com/igiti_enterprises/' },
 ];

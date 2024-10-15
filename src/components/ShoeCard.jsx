@@ -4,7 +4,6 @@ const handleClick= ()=>{
         changeBigShoeImg(imgURL.bigShoe)
     }
 }
-
   return (
     <div className={`border-2 rounded-xl 
     ${bigShoeImg === imgURL.bigShoe ?'border-orange-500' : 'border-gray-300' } 
