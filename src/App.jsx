@@ -20,7 +20,7 @@ const App = () =>(
       <Element name="team" className="padding bg-pale-blue">
         <OurTeam/>
       </Element>
-      <Element name="contact" className="padding-x sm:py-32 py-16 w-full">
+      <Element name="contact" className="padding-x max-md:px-2.5 sm:py-32 py-16 w-full">
         <Contact/>
       </Element>
       <Element className="padding-x padding-t pb-8 bg-black">
