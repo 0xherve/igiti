@@ -8,7 +8,7 @@ const App = () =>(
     <Navbar/>
     <Element name="hero" className="xl:padding-l wide:padding-r padding-b">
       <Hero/></Element>
-      <Element name="products" className="padding bg-pale-blue max-xl:mt-8">
+      <Element name="products" className="padding bg-pale-blue mt-12">
         <PopularProducts/>
       </Element>
       <Element name="about-us" className="padding">

@@ -17,11 +17,9 @@ const Subscribe = () => {
     </div>
   </div> */}
   
-  <input type="text" placeholder="subscribe@nike.com"
-    className="input" />
-
-  <Button label="Subscribe To Our newsletter" backgroundColor='bg-inherit'
- borderColor='border-orange-400' />
+    <a href="https://eminence.beehiiv.com/subscribe" target='blank'>
+    <buttom className='footer-last_button'>Subscribe To Our newsletter</buttom>
+ </a>
 </section>
 
   )
