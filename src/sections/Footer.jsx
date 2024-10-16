@@ -6,7 +6,7 @@ import {Link } from 'react-scroll'
 
 const Footer = () => {
   return (
-    <footer className="max-container">
+    <footer className="padding-x padding-t pb-8 bg-black">
       <div className="footer-brand">
         <div className="flex flex-col items-start max-md:flex-row max-md:mb-12 max-sm:flex-col">
           <div><a href="/">

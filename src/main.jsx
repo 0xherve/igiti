@@ -1,39 +1,29 @@
 import React from 'react';
-import { createRoot } from 'react-dom';
-import './index.css'
-import App from './App'; 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
+
+import App from './App';
 import ErrorPage from './pages/ErrorPage';
-import  Contact  from './pages/Contact';
+import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
-import { Footer } from './sections';
+import Footer from './sections/Footer';
 import Faq from './pages/Faq';
 
-
-const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <App />,
-      errorElement: <ErrorPage/>,
-    },
-    {
-        path: "/contact/",
-        element: <Contact />,
-      },
-      {
-        path: "/faq/",
-        element: <Faq />,
-      },
-    
-  ]);
-
-const root = createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode className="relative mx-1">
-        <Navbar/>
-      <RouterProvider router={router} />
-      <div className="padding-x padding-t pb-8 bg-black">
-        <Footer/>
-      </div>
-    </React.StrictMode>
+  <React.StrictMode>
+    <Router>
+      <Navbar />
+      <main className="container mx-auto">
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </Router>
+  </React.StrictMode>
 );
