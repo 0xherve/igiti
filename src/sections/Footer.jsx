@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="max-container">
       <div className="footer-brand">
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start max-md:flex-row max-md:mb-12 max-sm:flex-col">
           <div><a href="/">
             <img src={footerLogo} width={150} height={46}/>
           </a>
@@ -27,7 +27,7 @@ const Footer = () => {
               ))}
             </div>
         </div>
-        <div className='footer-info'>
+        <div className='footer-info max-lg:gap-12'>
                     {footerLinks.map((section)=>(
                       <div key={section}>
                         <h4 className='footer-info_h4 '>

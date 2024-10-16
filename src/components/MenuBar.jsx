@@ -2,7 +2,6 @@ import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/r
 import { hamburger } from '../assets/icons';
 import { navLinks } from '../constants'
 import { Fragment } from 'react';
-import { Link } from 'react-scroll';
 import Button from './Button';
 
 const MenuBar = () => {
@@ -22,14 +21,19 @@ const MenuBar = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <MenuItems className="absolute right-0 w-48 gap-8 mt-2 origin-top-right rounded-md border border-white/5 bg-pale-blue text-sm/6 p-5 z-20">
+          <MenuItems className="absolute right-0 w-48 gap-8 mt-2 origin-top-right rounded-md bg-pale-blue text-sm/6 p-5 z-20">
             <MenuItem>
             <ul>
-            {navLinks.map((item=>(
-              <li key={item.label} >
-                <Link to={item.href} className='nav-li'>{item.label}</Link>
-              </li>
-            )))}
+              {navLinks.map((item=>(
+                <li key={item.label} >
+                  <a href={item.href} className='nav-li'>{item.label}</a>
+                </li>
+              )))}
+            <li>
+            <a href="https://igitiecom.netlify.app" target='blank' className='nav-li border border-orange-400 px-2 py-1 rounded-full'>
+            <buttom className=''>Shop Now</buttom>
+            </a>
+            </li>
           </ul>
             </MenuItem>
           </MenuItems>

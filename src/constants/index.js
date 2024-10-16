@@ -2,10 +2,9 @@ import { tiktok, instagram, support, truckFast, twitter } from "../assets/icons"
 import { kids, adults, hubert, paula, brandi, green, enock, obed, adultPuzzle, kidsPuzzle} from "../assets/images";
 
 export const navLinks = [
-    { href: "hero", label: "Home" },
-    { href: "about-us", label: "About Us" },
-    { href: "products", label: "Products" },
-    { href: "contact", label: "Contact Us" },
+    { href: "/", label: "Home" },
+    { href: "/faq", label: "FAQs" },
+    { href: "/contact", label: "Contact Us" },
 ];
 
 export const puzzles = [
@@ -89,21 +88,23 @@ export const team = [
 
 
 export const footerLinks = [
+    // {
+    //     title: "Sections",
+    //     links: [
+    //         { name: "Home", link: "hero" },
+    //         { name: "Popular Products", link: "products" },
+    //         { name: "Our Team", link: "/" },
+    //         { name: "CustomerReviews", link: "review" },
+
+    //     ],
+    // },
     {
         title: "Help",
         links: [
-            { name: "About us", link: "about-us" },
-            { name: "Conatct Us", link: "contact" },
-            { name: "How it works", link: "/" },
-            { name: "Privacy policy", link: "/" },
+            { name: "About us", link: "#about-us" },
+            { name: "Contact Us", link: "/" },
+            { name: "Return Policy", link: "/" },
             // { name: "Payment policy", link: "/" },
-        ],
-    },
-    {
-        title: "Products",
-        links: [
-            { name: "Adults Puzzle", link: "#products" },
-            { name: "Kids Puzzle", link: "#products" },
         ],
     },
     {
@@ -120,3 +121,51 @@ export const socialMedia = [
     { src: twitter, alt: "twitter logo", link:'https://x.com/Igiti_puzzles' },
     { src: instagram, alt: "instagram logo", link:'https://www.instagram.com/igiti_enterprises/' },
 ];
+
+export const reviews = [
+    {
+        imgURL: hubert,
+        customerName: 'Morich Brown',
+        rating: 4.5,
+        feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
+    },
+    {
+        imgURL: green,
+        customerName: 'Lota Mongeskar',
+        rating: 4.5,
+        feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
+    }
+];
+
+export const faq = [
+    {
+        index: 0 ,
+        question: ' What does Igiti Enterprise do?',
+        answer: ' The answer goes here.....',
+    },
+    {
+        index: 1 ,
+        question: 'Who are our games made for?',
+        answer: 'The answer goes here.....',
+    },
+    {
+        index: 2 ,
+        question: 'What are the benefits of our games?',
+        answer: 'The answer goes here.....',
+    },
+    {
+        index: 3 ,
+        question: 'How can I get your products?',
+        answer: 'The answer goes here.....',
+    },
+    {
+        index: 4 ,
+        question: 'Who do we work with?',
+        answer: 'The answer goes here.....',
+    },
+    {
+        index: 5 ,
+        question: "What is our vision for the future? ",
+        answer: 'The answer goes here.....',
+    },
+]

@@ -1,11 +1,10 @@
-import Navbar from "./components/Navbar";
 import { Element } from "react-scroll";
-import { OurTeam,Footer, Hero,
-PopularProducts, Services, SuperQuality, Contact} from "./sections";
+import { OurTeam, Hero,
+PopularProducts, Services, SuperQuality} from "./sections";
+import Reviews from "./sections/Reviews";
 
 const App = () =>(
 <main className="relative mx-1">
-    <Navbar/>
     <Element name="hero" className="xl:padding-l wide:padding-r padding-b">
       <Hero/></Element>
       <Element name="products" className="padding bg-pale-blue mt-12">
@@ -20,12 +19,10 @@ const App = () =>(
       <Element name="team" className="padding bg-pale-blue">
         <OurTeam/>
       </Element>
-      <Element name="contact" className="padding-x max-md:px-2.5 sm:py-32 py-16 w-full">
-        <Contact/>
+      <Element name="review" className="padding-x max-md:px-2.5 sm:py-32 py-16 w-full">
+        <Reviews/>
       </Element>
-      <Element className="padding-x padding-t pb-8 bg-black">
-        <Footer/>
-      </Element>
+      
   </main>
 )
 export default App;

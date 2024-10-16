@@ -11,6 +11,8 @@ import star from './star.svg'
 import truckFast from './truck-fast.svg'
 import twitter from './twitter.svg'
 import tiktok from './tiktok.svg'
+import plus from './plus.svg'
+import minus from './minus.svg' 
 
 export {
     arrowRight,
@@ -25,5 +27,7 @@ export {
     star,
     truckFast,
     twitter,
-    tiktok
+    tiktok,
+    plus,
+    minus,
 }

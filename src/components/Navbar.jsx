@@ -14,7 +14,7 @@ const Navbar = () => {
           <ul className='nav-list'>
             {navLinks.map((item=>(
               <li key={item.label} >
-                <Link to={item.href} className='nav-li'>{item.label}</Link>
+                <a href={item.href} className='nav-li text-xl'>{item.label}</a>
               </li>
             )))}
             <li className='right-12 absolute'><Button label="Shop Now" link='https://igitiecom.netlify.app/'/></li>
