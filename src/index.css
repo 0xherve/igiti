@@ -31,7 +31,7 @@
     @apply font-montserrat leading-normal font-bold text-slate-gray cursor-pointer
   }
   .hero{
-    @apply w-full flex lg:flex-row flex-col justify-center min-h-screen gap-10 max-container
+    @apply w-full flex lg:flex-row flex-col justify-center min-h-fit gap-10 max-container 
   }
   .hero-title{
     @apply relative lg:w-2/5 max-lg:padding-x flex flex-col justify-center items-start
