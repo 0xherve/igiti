@@ -28,7 +28,7 @@
     @apply flex-1 flex justify-center items-center gap-16 max-lg:gap-10 max-sm:justify-start max-sm:ml-14 max-lg:hidden
   }
   .nav-li{
-    @apply font-montserrat leading-normal font-bold text-slate-gray cursor-pointer
+    @apply font-montserrat leading-normal font-semibold text-slate-gray cursor-pointer
   }
   .hero{
     @apply w-full flex lg:flex-row flex-col justify-center min-h-fit gap-10 max-container 
