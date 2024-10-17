@@ -27,7 +27,7 @@ const MenuBar = () => {
             <ul>
               {navLinks.map((item=>(
                 <li key={item.label} >
-                  <Link href={item.href} className='nav-li'>{item.label}</Link>
+                  <Link to={item.href} className='nav-li'>{item.label}</Link>
                 </li>
               )))}
             <li>
