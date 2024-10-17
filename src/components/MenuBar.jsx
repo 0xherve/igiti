@@ -3,6 +3,7 @@ import { hamburger } from '../assets/icons';
 import { navLinks } from '../constants'
 import { Fragment } from 'react';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const MenuBar = () => {
   return (
@@ -26,7 +27,7 @@ const MenuBar = () => {
             <ul>
               {navLinks.map((item=>(
                 <li key={item.label} >
-                  <a href={item.href} className='nav-li'>{item.label}</a>
+                  <Link href={item.href} className='nav-li'>{item.label}</Link>
                 </li>
               )))}
             <li>
