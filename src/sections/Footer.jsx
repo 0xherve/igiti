@@ -2,13 +2,13 @@ import { copyrightSign } from '../assets/icons'
 import {footerLogo} from '../assets/images'
 import Subscribe from '../components/Subscribe'
 import {footerLinks, socialMedia} from '../constants'
-import {Link } from 'react-scroll'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="padding-x padding-t pb-8 bg-black">
+    <footer className="padding-x lg:pt-12 py-5 lg:pb-8 bg-black">
       <div className="footer-brand">
-        <div className="flex flex-col items-start max-md:flex-row max-md:mb-12 max-sm:flex-col">
+        <div className="footer-brand_container">
           <div><a href="/">
             <img src={footerLogo} width={150} height={46}/>
           </a>
@@ -27,7 +27,7 @@ const Footer = () => {
               ))}
             </div>
         </div>
-        <div className='footer-info max-lg:gap-12'>
+        <div className='footer-info'>
                     {footerLinks.map((section)=>(
                       <div key={section}>
                         <h4 className='footer-info_h4 '>

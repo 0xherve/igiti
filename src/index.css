@@ -96,10 +96,10 @@
     @apply font-montserrat text-slate-gray font-medium mb-10
   }
   .contact{
-    @apply flex justify-center items-center shadow-xl bg-[#fff5f1] max-lg:px-5 max-lg:py-5 rounded-3xl gap-10 border-2 border-gray-200 py-10 
+    @apply flex justify-center items-center shadow-xl bg-[#fff5f1] px-10 py-5 rounded-3xl gap-10  border-2 border-gray-200 mb-8 mx-5 xl:mx-60
   }
   .contact-container{
-    @apply flex max-h-screen gap-5 items-stretch justify-center flex-col py-8
+    @apply flex max-h-screen gap-5 items-stretch justify-center flex-col py-8 
   }
   .contact-container_h3{
     @apply text-4xl w-[1/3] leading-[68px] lg:max-w-md font-palanquin font-semibold
@@ -123,13 +123,13 @@
    @apply mt-3 text-gray-400 font-medium font-montserrat text-base leading-normal hover:text-slate-gray cursor-pointer
   }
   .footer-last{
-    @apply flex justify-between gap-10  text-white-400 my-24 max-md:flex-col max-md:items-center max-md:gap-8
+    @apply flex justify-between md:gap-10  text-white-400 my-5 max-md:flex-col max-md:items-center max-md:gap-8 max-md:mt-8
   }
   .footer-last_disclaimer{
     @apply flex flex-1 justify-start items-center gap-2 font-montserrat cursor-pointer
   }
   .footer-last_button{
-    @apply bg-inherit border border-orange-400  text-white font-medium px-6 py-3 rounded-full hover:bg-orange-400
+    @apply bg-inherit border border-orange-400 text-white font-medium px-6 py-3 rounded-full hover:bg-orange-400
   }
   .faq-img{
     @apply rounded-full object-cover

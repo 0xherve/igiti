@@ -1,10 +1,8 @@
-import Button from '../components/Button'
-
 const Subscribe = () => {
   return (
     <section
     id="contact-us"
-  className="flex justify-between items-center max-lg:flex-col gap-10">
+  className="flex justify-between items-center gap-10">
   {/* <p
     className="text-4xl leading-[68px] lg:max-w-md font-palanquin font-bold">
     Sign Up for Updates & Newsletter
@@ -17,8 +15,8 @@ const Subscribe = () => {
     </div>
   </div> */}
   
-    <a href="https://eminence.beehiiv.com/subscribe" target='blank'>
-    <buttom className='footer-last_button'>Subscribe To Our newsletter</buttom>
+    <a href="https://igiti.beehiiv.com/subscribe" target='blank'>
+    <button className='footer-last_button'>Subscribe To Our newsletter</button>
  </a>
 </section>
 

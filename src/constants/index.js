@@ -101,9 +101,10 @@ export const footerLinks = [
     {
         title: "Help",
         links: [
-            { name: "About us", link: "#about-us" },
-            { name: "Contact Us", link: "/" },
-            { name: "Return Policy", link: "/" },
+            // { name: "About us", link: "/#about-us" },
+            { name: "Home", link: "/" },
+            { name: "Contact Us", link: "/contact" },
+            { name: "Return Policy", link: "/return-policy" },
             // { name: "Payment policy", link: "/" },
         ],
     },
@@ -169,3 +170,4 @@ export const faq = [
         answer: 'The answer goes here.....',
     },
 ]
+

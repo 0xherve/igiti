@@ -1,0 +1,78 @@
+{
+  "title": "Return Policy",
+  "description":"At Igiti Enterprises, customer satisfaction is our top priority. If you are not fully satisfied with your purchase, we’re here to help. Below are the guidelines for returns, refunds, and exchanges.",
+        
+  "sections": [
+    {
+      "heading": "1.Eligibility for Returns",
+      "points": [
+        {
+          "subheading": "Timeframe",
+          "content": "You have 30 days from the date of delivery to initiate a return."
+        },
+        {
+          "subheading": "Condition of Items",
+          "content": "To be eligible for a return, the item must be unused, in its original packaging, and in the same condition that you received it."
+        },
+        {
+          "subheading": "Proof of Purchase",
+          "content": "A receipt or proof of purchase is required to process a return."
+        }
+      ]
+    },
+    {
+      "heading": "2.Non-Returnable Items",
+      "content": "Certain items are not eligible for returns:",
+      "items": [
+        "Gift cards",
+        "Digital products (such as digital games or puzzles)",
+        "Items purchased on final sale or with a discount unless they arrived damaged or defective"
+      ]
+    },
+    {
+      "heading": "3.Return Process",
+      "points": [
+        {
+          "subheading": "Step 1",
+          "content": "Contact our customer service team at info@igitienterprises.com / +250788444011 to request a return authorization. Include your order number and reason for the return."
+        },
+        {
+          "subheading": "Step 2",
+          "content": "Once your return is authorized, you will receive detailed instructions for shipping the item back to us."
+        },
+        {
+          "subheading": "Step 3",
+          "content": "Pack the item securely and use the return label provided by Igiti Enterprises or ship via your preferred method. Customers are responsible for return shipping costs unless the item was damaged or defective upon receipt."
+        }
+      ]
+    },
+    {
+      "heading": "4.Damaged or Defective Items",
+      "content": "If your item arrives damaged or defective, please contact us within 30 days of delivery. We will arrange for a replacement, repair, or refund at no extra cost to you."
+    },
+    {
+      "heading": "5.Refunds",
+      "points": [
+        {
+          "subheading": "Refund Method",
+          "content": "Once we receive and inspect your returned item, we will notify you of the status of your refund. If approved, your refund will be processed, and a credit will automatically be applied to your original method of payment within 7-10 business days."
+        },
+        {
+          "subheading": "Shipping Costs",
+          "content": "Original shipping costs are non-refundable unless the return is due to an error on our part (e.g., wrong item sent or item arrives damaged)."
+        }
+      ]
+    },
+    {
+      "heading": "6.Exchanges",
+      "content": "We only replace items if they are defective, damaged, or you received the wrong product. If you need to exchange an item, contact our customer service for assistance."
+    },
+    {
+      "heading": "7.International Returns",
+      "content": "If you are returning an item from outside Rwanda or the U.S., international shipping costs, customs duties, and fees are non-refundable. Customers are responsible for ensuring the item is returned in good condition."
+    }
+  ],
+  "contact": "For any questions or concerns, feel free to contact us at ",
+  "address": "info@igitienterprises.com.",
+  "regards": "We're always happy to assist!"
+}

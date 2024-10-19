@@ -4,7 +4,7 @@ import { minus, plus } from '../assets/icons';
 
 const FaqItem = ()=> {
   return (
-    <div className='max-container my-5'>
+    <div className='max-container my-4'>
         <div className="w-full flex flex-col  grid-rows-3 gap-5 ">
         {faq.map((item)=>(
             <Disclosure as="div" key={item.id} className="rounded-lg flex flex-col shadow-md min-w-fit h-auto p-8 font-montserrat bg-pale-blue">

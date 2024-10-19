@@ -52,7 +52,7 @@ const Contact = () => {
 
   return (
     <section
-      className="contact mb-8 mx-5"
+      className="contact ;"
     >
       <div className="contact-container">
         <h3 className="contact-container_h3 ">Let's Talk</h3 >
