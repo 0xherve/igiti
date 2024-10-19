@@ -12,8 +12,8 @@ const Hero = () => {
      className="hero">
         <div className="hero-title">
           <h1 className="hero-h1">
-            <span className=" relative z-10">Bringing Life to </span>
-          <span className="text-orange-500  inline-block z-10 pr-5">Africa.</span>
+            <span className=" relative z-10">Bringing Africa to </span>
+          <span className="text-orange-500  inline-block z-10 pr-5">Life.</span>
         </h1>
           <p className="hero-text">Journey through Africa Piece by Piece </p>
           <Button label="Shop Now" iconURL={arrowRight} link='https://igitiecom.netlify.app/'/>
