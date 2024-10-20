@@ -33,18 +33,18 @@
   .hero{
     @apply w-full flex lg:flex-row flex-col justify-center min-h-fit gap-10 max-container 
   }
-  .hero-title{
-    @apply relative lg:w-2/5 max-lg:padding-x flex flex-col justify-center items-start
-  }
   .hero-img{
     @apply relative flex-1 flex flex-col justify-center items-center lg:min-h-full max-lg:py-4 bg-center
   }
+  .hero-title{
+    @apply relative lg:w-2/5 max-lg:padding-x flex flex-col justify-start items-start 
+  }
+  
   .hero-h1{
-    @apply font-palanquin font-bold
-    text-8xl max-sm:text-[52px] max-sm:leading-[1.5] z-10 
+    @apply font-palanquin font-bold relative top-0 w-full mb-5 text-8xl max-sm:text-[52px] max-sm:leading-[1.5] z-10 
   }
   .hero-text{
-    @apply font-montserrat font-bold text-slate-gray text-lg leading-8 mt-6 mb-8 sm:max-w-sm
+    @apply font-montserrat font-bold text-slate-gray text-lg leading-8 my-8 sm:max-w-sm
   }
   .hero-pics{
      @apply flex gap-7 -mt-7 z-10

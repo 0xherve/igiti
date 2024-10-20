@@ -12,7 +12,7 @@ const Terms = () => {
       {/* Sections */}
       <div className="space-y-8">
         {policyData.sections.map((section, index) => (
-          <div key={index} className="border-b border-gray-300 pb-6">
+          <div key={index} className="border-b border-orange-200 pb-6">
             {/* Section Heading */}
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">{section.heading}</h2>
             

@@ -1,6 +1,6 @@
 const Button = ( {label, iconURL, backgroundColor, textColor, borderColor, link}) => {
   return (
-    <a href={link}>
+    <a href={link} target="blank">
       <button className={`flex justify-center align-center border border-solid
      gap-2 px-7 py-4 font-montserrat text-lg leading-none  
     ${backgroundColor?`${backgroundColor} ${textColor} ${borderColor}`:
