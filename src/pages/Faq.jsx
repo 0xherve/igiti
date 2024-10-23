@@ -1,4 +1,5 @@
 import FaqItem from "../components/FaqItem"
+import  faq  from "../assets/faq.json"
 
 const Faq = () => {
   return (
@@ -7,7 +8,7 @@ const Faq = () => {
             Frequently asked Questions
         </h1>
         <div className="border-4 border-[#fff5f1] p-5 my-4 mx-10 rounded-3xl">
-        <FaqItem/>
+        <FaqItem data= {faq}/>
     </div>
     </div>
     

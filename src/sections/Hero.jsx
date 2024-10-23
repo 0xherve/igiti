@@ -19,7 +19,7 @@ const Hero = () => {
           <Button label="Shop Now" iconURL={arrowRight} link='https://igitiecom.netlify.app/'/>
         </div>
         <div className="hero-img">
-        <img src={product} alt="Shoe Collection" width={610} height={500} 
+        <img src={product} alt="Shoe Collection" width={610} height={500} loading="lazy"
         className="object-contain relative z-5 rounded-3xl" />
         <div className="hero-pics">
         {puzzles.map((item)=>(

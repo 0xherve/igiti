@@ -1,0 +1,71 @@
+{
+    "title": "IGITI FAQs",
+    "sections": [
+        {
+            "index": 0,
+            "question": "What is Igiti Enterprises?",
+            "answer": "Igiti Enterprises is a creative company focused on developing educational and culturally enriching products such as puzzle maps, playing cards, and digital games. We aim to celebrate African heritage and Black culture while providing engaging, educational tools for both children and adults."
+        },
+        {
+            "index": 1,
+            "question": "What types of products does Igiti Enterprises offer?",
+            "answer": [
+                "We offer a range of products, including:",
+                {
+                    "point": "Puzzle maps that highlight African geography and history."
+                },
+                {
+                    "point": "Playing cards featuring significant cultural themes."
+                },
+                {
+                    "point": "Floor puzzles for kids."
+                },
+                {
+                    "point": "Digital games designed to teach and entertain."
+                }
+            ],
+            "text": "Our products are rooted in African and Black cultural awareness, making learning both fun and meaningful."
+        },
+        {
+            "index": 2,
+            "question": "What is the main focus of Igiti Enterprises' Products?",
+            "answer": "Our products center around African history, culture, and geography. They are designed to provide an engaging way to explore African heritage, making learning about these subjects fun and accessible.",
+            "text": "Our primary consumers include educational institutions, retail customers, parents, teachers, enthusiasts of African and Black culture, homeschooling families, and hospitality venues."
+        },
+        {
+            "index": 3,
+            "question": "Where can I purchase Igiti products?",
+            "answer": "Our products will be available through select schools, retail stores, and online platforms globally. For specific purchasing information, please visit our website or contact our sales representatives."
+        },
+        {
+            "index": 4,
+            "question": "How does Igiti Enterprises ensure the quality of its products?",
+            "answer": "Igiti Enterprises works with a dedicated team of designers, cultural experts, and educators to ensure that our products are engaging, fun, educational, and culturally accurate. We source high-quality materials and continuously seek feedback to improve our offerings."
+        },
+        {
+            "index": 5,
+            "question": "What makes Igiti’s products unique?",
+            "answer": "Igiti Enterprises creates products that celebrate African history, geography, and culture in interactive and accessible ways. Our products promote cultural pride and awareness while supporting education through creative, hands-on learning tools."
+        },
+        {
+            "index": 6,
+            "question": "How does Igiti Enterprises contribute to cultural education?",
+            "answer": "Our products are designed to teach both children and adults about Africa's rich history, diverse cultures, and geography. Through fun and interactive games and puzzles, we help foster a deeper understanding and appreciation of African heritage."
+        },
+        {
+            "index": 7,
+            "question": "Can Igiti Enterprises partner with schools, stores, or organizations?",
+            "answer": "Yes! We actively seek partnerships with schools, cultural institutions, and organizations that are interested in promoting African and Black cultural awareness. If you’re interested in partnering with us, please contact our team to discuss potential collaborations."
+        },
+        {
+            "index": 8,
+            "question": "What is Igiti Enterprises’ mission?",
+            "answer": "Our mission is to create engaging, educational products that celebrate African and Black cultures, empowering individuals to explore and appreciate their heritage. We aim to promote cultural pride while providing innovative learning tools for diverse audiences."
+        },
+        {
+            "index": 9,
+            "question": "How can I contact Igiti Enterprises?",
+            "answer": "You can reach us via our contact page on the website or by emailing us directly at [insert email]. We also have representatives in both Rwanda and the United States for localized support and inquiries."
+        }
+    ]
+}
