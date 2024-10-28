@@ -137,37 +137,3 @@ export const reviews = [
         feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
     }
 ];
-
-export const faq = [
-    {
-        index: 0 ,
-        question: ' What does Igiti Enterprise do?',
-        answer: ' The answer goes here.....',
-    },
-    {
-        index: 1 ,
-        question: 'Who are our games made for?',
-        answer: 'The answer goes here.....',
-    },
-    {
-        index: 2 ,
-        question: 'What are the benefits of our games?',
-        answer: 'The answer goes here.....',
-    },
-    {
-        index: 3 ,
-        question: 'How can I get your products?',
-        answer: 'The answer goes here.....',
-    },
-    {
-        index: 4 ,
-        question: 'Who do we work with?',
-        answer: 'The answer goes here.....',
-    },
-    {
-        index: 5 ,
-        question: "What is our vision for the future? ",
-        answer: 'The answer goes here.....',
-    },
-]
-
