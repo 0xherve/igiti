@@ -12,7 +12,7 @@ export default {
           {
             type: 'object',
             fields: [
-              { name: 'href', title: 'Link URL', type: 'url', validation: Rule => Rule.required() },
+              { name: 'href', title: 'Link URL', type: 'string', validation: Rule => Rule.required() },
               { name: 'label', title: 'Link Label', type: 'string', validation: Rule => Rule.required() },
             ],
           },

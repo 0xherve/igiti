@@ -1,23 +1,43 @@
 // schemas/products.js
 export default {
   name: 'products',
-  title: 'Products',
+  title: 'Highlighted Products',
   type: 'document',
   fields: [
     {
       name: 'productItems',
-      title: 'Products',
+      title: 'Product',
       type: 'array',
       of: [
         {
-          type: 'object',
+          type: "object",
           fields: [
-            { name: 'imgURL', title: 'Image URL', type: 'image', options: { hotspot: true }, validation: Rule => Rule.required() },
-            { name: 'name', title: 'Product Name', type: 'string', validation: Rule => Rule.required() },
-            { name: 'price', title: 'Price', type: 'string', validation: Rule => Rule.required() },
-          ],
-        },
+            {
+              name: "url",
+              title: "Image URL",
+              type: "url",
+              description: "URL of the product image"
+            },
+            {
+              name: "name",
+              title: "Name",
+              type: "string",
+              description: "Name of the product"
+            },
+            {
+              name: "image",
+              title: "Image",
+              type: "image",
+              description: "Image of the intended product highlight"
+            }
+          ]
+        }
       ],
     },
   ],
+  preview: {
+    select: {
+      title: "title" // Only the title field will display in the list view
+    }
+  }
 };

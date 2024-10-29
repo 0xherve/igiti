@@ -6,13 +6,13 @@ export default {
     fields: [
       {
         name: 'puzzleItems',
-        title: 'Puzzles',
+        title: 'Puzzle',
         type: 'array',
         of: [
           {
             type: 'object',
             fields: [
-              { name: 'thumbnail', title: 'Thumbnail', type: 'image', options: { hotspot: true }, validation: Rule => Rule.required() },
+              { name: 'imgName', title: 'Puzzle Name', type: 'string', options: { hotspot: true }, validation: Rule => Rule.required() },
               { name: 'image', title: 'Puzzle Image', type: 'image', options: { hotspot: true }, validation: Rule => Rule.required() },
             ],
           },
