@@ -1,20 +1,37 @@
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
 import { hamburger } from '../assets/icons';
-import { navLinks } from '../constants'
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { client } from '../assets/sanityClient';
 
 const MenuBar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const handleCloseMenu = () => {
-      setIsOpen(false);
+  const [navLinks, setNavLinks] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Fetch the navLinks array from the root-level array in Sanity
+    const fetchNavLinks = async () => {
+      const query = '*[_type == "navLinks"]{href, label} | order(order asc)'; // Query for navLinks array
+      const data = await client.fetch(query);
+      if (data) { // Check if data and links array exist
+        setNavLinks(data); // Set the links array
+      } else {
+        console.warn("No navLinks data found");
+      }
     };
-  
+
+    fetchNavLinks();
+  }, []);
+
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="">
       <Menu as="div" className="relative">
-        <MenuButton >
-          <img src={hamburger} alt="hamburger" width={36} height={36} onClick={() => setIsOpen(!isOpen)}/>
+        <MenuButton onClick={() => setIsOpen(!isOpen)}>
+          <img src={hamburger} alt="hamburger" width={36} height={36} />
         </MenuButton>
 
         <Transition
@@ -26,21 +43,33 @@ const MenuBar = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <MenuItems className="absolute right-0 w-48 gap-8 mt-2 origin-top-right rounded-md bg-pale-blue text-sm/6 p-5 z-20" >
-            <MenuItem>
+          <MenuItems 
+            static 
+            className={`absolute items-center right-0 w-36 object-contain gap-16 my-2 origin-top-right rounded-md bg-pale-blue text-sm p-5 z-20 ${isOpen ? 'block' : 'hidden'}`}
+          >
             <ul>
-              {navLinks.map((item=>(
-                <li key={item.label} >
-                  <Link to={item.href} className='nav-li'>{item.label}</Link>
+              {navLinks ? (
+                navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link to={link.href} className='nav-li w-full'>{link.label}</Link>
+                  </li>
+                ))
+              ) : (
+                <p>Loading...</p>
+              )}
+              <MenuItem>
+                <li>
+                  <a
+                    href="https://igitiecom.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit relative border border-orange-400 px-2 rounded-full"
+                  >
+                    <button onClick={handleCloseMenu}>Shop Now</button>
+                  </a>
                 </li>
-              )))}
-            <li>
-            <a href="https://igitiecom.netlify.app" target='blank' className='nav-li border border-orange-400 px-2 py-1 rounded-full'>
-            <button onClick={handleCloseMenu}>Shop Now</button>
-            </a>
-            </li>
-          </ul>
-            </MenuItem>
+              </MenuItem>
+            </ul>
           </MenuItems>
         </Transition>
       </Menu>

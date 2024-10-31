@@ -18,7 +18,7 @@ root.render(
     <Router>
       <Navbar />
       <ScrollTop/>
-      <main className="container mx-auto">
+      <main className="mx-auto">
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/contact" element={<Contact />} />

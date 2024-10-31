@@ -1,6 +1,3 @@
-// schemaTypes/index.js
-
-// Import your schema files
 import navLinks from './navLinks';
 import puzzles from './puzzles';
 import products from './products';
@@ -18,8 +15,8 @@ export const schemaTypes = [
     products,
     services,
     teamMembers,
-    footerLinks,
-    socialMedia,
     customerReviews,
-    faq
+    socialMedia,
+    footerLinks,
+    // faq
 ];

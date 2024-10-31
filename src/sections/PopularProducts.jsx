@@ -1,7 +1,25 @@
-import {products} from '../constants'
+import { useState, useEffect } from 'react'
+// import {products} from '../constants'
+import { client, urlFor } from '../assets/sanityClient'
 import PopularProductCard from '../components/PopularProductCard'
 
 const PopularProducts = () => {
+  const [ products, setProducts ]= useState([]);
+  useEffect(()=>{
+    const fetchProducts = async ()=>{
+      const query = '*[_type=="products"]';
+      const data = await client.fetch(query)
+      if (data && data.length > 0 ){
+        setProducts(data)
+      }
+      else{
+        console.log("No data found")
+      }
+    }
+    fetchProducts()
+  },
+[])
+
   return (
     <section className=' w-full'>
       <div className='flex flex-col justify-center gap-3 items-center'>
@@ -11,7 +29,12 @@ const PopularProducts = () => {
       </div>
       <div className='product-list' >
         {products.map((product, index)=>(
-          <PopularProductCard key={index} {...product} />
+          <PopularProductCard key={index} 
+          imgURL={urlFor(product.image).url()}
+          name={product.name}
+          price ={product.price}
+          rating={product.rating}
+          />
         ))}
       </div>
     </section>

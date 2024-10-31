@@ -1,10 +1,38 @@
+import {useState, useEffect} from 'react'
 import { copyrightSign } from '../assets/icons'
 import {footerLogo} from '../assets/images'
 import Subscribe from '../components/Subscribe'
-import {footerLinks, socialMedia} from '../constants'
 import {Link} from 'react-router-dom'
+import {client, urlFor} from '../assets/sanityClient'
 
 const Footer = () => {
+  const [socialMedia, setSocialMedia] = useState([]);
+  const [footerLinks, setFooterLinks] = useState([])
+  useEffect(()=>{
+    const fetchSocials = async ()=>{
+      const query = '*[_type=="socials"]'
+      const data = await client.fetch(query)
+      if (data && data.length > 0){
+        setSocialMedia(data)
+      } 
+      else{
+        console.warn("no data found")
+      }
+    }
+    const fetchFooterLinks = async ()=>{
+      const query = '*[_type=="footerLinks"] | order( order asc )'
+      const data = await client.fetch(query)
+      if (data && data.length > 0){
+        setFooterLinks(data)
+      } 
+      else{
+        console.warn("no data found")
+      }
+    }
+    fetchSocials()
+    fetchFooterLinks()
+  }, [])
+
   return (
     <footer className="padding-x lg:pt-12 py-5 lg:pb-8 bg-black">
       <div className="footer-brand">
@@ -19,8 +47,8 @@ const Footer = () => {
             <div className='flex items-center gap-5 mt-8'>
               {socialMedia.map((icon)=>(
                 <div key={icon} className='footer-brand_social'>
-                  <a href={icon.link}>
-                  <img src={icon.src} alt={icon.alt}
+                  <a href={icon.link} target='blank'>
+                  <img src={urlFor(icon.src).url()} alt={icon.alt}
                   width={24} height={24} />
                   </a>
                 </div>

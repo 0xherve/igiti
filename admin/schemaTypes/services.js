@@ -4,21 +4,27 @@ export default {
     title: 'Services',
     type: 'document',
     fields: [
-      {
-        name: 'serviceItems',
-        title: 'Services',
-        type: 'array',
-        of: [
-          {
-            type: 'object',
-            fields: [
-              { name: 'imgURL', title: 'Image URL', type: 'image', options: { hotspot: true }, validation: Rule => Rule.required() },
-              { name: 'label', title: 'Label', type: 'string', validation: Rule => Rule.required() },
-              { name: 'subtext', title: 'Subtext', type: 'text', validation: Rule => Rule.required() },
-            ],
-          },
-        ],
-      },
-    ],
+      { name: 'image',
+         title: 'Illustrative Image',
+          type: 'image',
+          options: { hotspot: true }, 
+          validation: Rule => Rule.required(),
+          Description: "The Image to illustrate the service"
+        },
+        
+      { name: 'label',
+         title: 'Label',
+          type: 'string',
+           validation: Rule => Rule.required(),
+          description: 'The title for the service' 
+        },
+
+      { name: 'text',
+         title: 'text',
+          type: 'text',
+           validation: Rule => Rule.required(),
+          description: 'Ellaborate about the service you offer'
+          }
+       ],
   };
   

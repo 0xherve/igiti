@@ -5,16 +5,8 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'productItems',
-      title: 'Product',
-      type: 'array',
-      of: [
-        {
-          type: "object",
-          fields: [
-            {
               name: "url",
-              title: "Image URL",
+              title: "Product URL",
               type: "url",
               description: "URL of the product image"
             },
@@ -29,15 +21,24 @@ export default {
               title: "Image",
               type: "image",
               description: "Image of the intended product highlight"
+            },
+            {
+              name: 'price',
+              title: 'Price',
+              type: "string",
+              description: 'The price in your currency of choice for the highlighted product'
+            },
+            {
+              name: 'rating',
+              title: 'Product Rating',
+              type: 'number',
+              description: 'Rating of the product in the range of 1 to 5'
             }
-          ]
-        }
       ],
-    },
-  ],
   preview: {
     select: {
-      title: "title" // Only the title field will display in the list view
+      title: "name",
+      media: "image"
     }
   }
 };
