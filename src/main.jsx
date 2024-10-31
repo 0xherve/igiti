@@ -11,6 +11,7 @@ import Footer from './sections/Footer';
 import Faq from './pages/Faq';
 import Viewer from './pages/Viewer';
 import ScrollTop from './components/ScrollTop'
+import SanityStudio from './pages/SanityStudio';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/return-policy" element={<Viewer />} />
+          <Route path="/studio" element={<SanityStudio />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
