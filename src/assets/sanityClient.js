@@ -6,7 +6,7 @@ export const client = sanityClient({
   projectId: 'hylgwhzg', 
   dataset: 'production', 
   useCdn: true,  
-  // token: import.meta.env.VITE_SANITY_TOKEN  
+  token: import.meta.env.VITE_SANITY_TOKEN  
 });
 
 const builder = imageUrlBuilder(client);
