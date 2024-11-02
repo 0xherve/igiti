@@ -1,5 +1,5 @@
 // MainApp.js
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { client } from './assets/sanityClient'
 
@@ -21,7 +21,7 @@ const MainApp = () => {
     setLoading(true); // Start loading
   
     try {
-      const query = '*[type=_heroSection]'
+      const query = '*[]'
       const data = await client.fetch(query)
       if(data){
         console.log('Website Fetched')
