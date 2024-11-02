@@ -36,7 +36,7 @@ const MainApp = () => {
     const timer = setTimeout(() => {
       // setLoading(false);
       loadData()
-    }, 2500); // Simulated load time, adjust as needed
+    }, 500); // Simulated load time, adjust as needed
 
     return () => clearTimeout(timer);
   }, []);
