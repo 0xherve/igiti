@@ -4,8 +4,8 @@ PopularProducts, Services, SuperQuality} from "./sections";
 import Reviews from "./sections/Reviews";
 
 const App = () =>(
-<main className="relative">
-    <Element name="hero" className="xl:padding-l wide:padding-r padding-b">
+<main className="relative ">
+    <Element name="hero" className="xl:padding-l wide:padding-r ">
       <Hero/></Element>
       <Element name="products" className="px-2 py-12 bg-pale-blue mt-8">
         <PopularProducts/>

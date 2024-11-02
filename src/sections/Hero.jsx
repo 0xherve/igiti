@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero ">
       <div className="hero-title">
         <h1 className="hero-h1">
           <span>Bringing Africa to </span>
@@ -33,7 +33,7 @@ const Hero = () => {
         <p className="hero-text">Journey through Africa Piece by Piece</p>
         <Button label="Shop Now" iconURL={arrowRight} link="https://igitiecom.netlify.app/" />
       </div>
-      <div className="hero-img">
+      <div className="hero-img max-lg:mx-2">
         {product && ( // Ensure product has been set
           <img
             src={product}

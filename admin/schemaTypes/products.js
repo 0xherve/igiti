@@ -8,19 +8,21 @@ export default {
               name: "url",
               title: "Product URL",
               type: "url",
-              description: "URL of the product image"
+              description: "URL of the product image",
             },
             {
               name: "name",
               title: "Name",
               type: "string",
-              description: "Name of the product"
+              description: "Name of the product",
+              validation: Rule => Rule.required() 
             },
             {
               name: "image",
               title: "Image",
               type: "image",
-              description: "Image of the intended product highlight"
+              description: "Image of the intended product highlight",
+              validation: Rule => Rule.required() 
             },
             {
               name: 'price',
@@ -33,6 +35,11 @@ export default {
               title: 'Product Rating',
               type: 'number',
               description: 'Rating of the product in the range of 1 to 5'
+            },
+            {
+              name: 'description',
+              title: 'Product Description',
+              type: 'text',
             }
       ],
   preview: {

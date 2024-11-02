@@ -49,12 +49,14 @@
   .hero-pics{
      @apply flex gap-7 -mt-7 z-10
   }
-  .product-list{
-    @apply mt-8 grid grid-flow-col gap-8 rounded-2xl md:gap-12 justify-center max-md:justify-items-center max-md:grid-flow-row
+  .product-list {
+    @apply mt-8 flex flex-wrap gap-8 rounded-2xl md:gap-12 justify-center items-center;
   }
-  .product-card{
-    @apply flex shadow-lg rounded-3xl flex-col max-w-xl p-10 gap-5 justify-evenly items-center
+
+  .product-card {
+    @apply flex shadow-lg rounded-3xl flex-col w-[400px] h-[550px] p-10 gap-5 justify-center items-center;
   }
+  
   .popular-text{
     @apply lg:max-w-xl mt-2 font-montserrat text-2xl font-medium text-center info-text items-center
   }
@@ -76,22 +78,66 @@
   }
   
   .member-card {
-    @apply flex flex-col justify-start items-center p-10 shadow-md rounded-2xl border object-contain border-slate-200 my-5 min-w-[300px] h-[450px];
+    @apply flex flex-col justify-between items-center p-10 shadow-md rounded-2xl border object-contain border-slate-200 my-5 min-w-[300px] h-[425px];
   }
   
-  .team-img{
-    @apply rounded-full object-cover w-36 h-36 mb-5
+  .team-img {
+    @apply rounded-full object-cover w-36 h-36 mb-5;
   }
-  .member-info{
-    @apply flex flex-col justify-between items-center gap-2
+  
+  .member-info {
+    @apply flex flex-col justify-between items-center text-center flex-grow; /* Ensure it takes remaining space */
   }
-  .member-info_h3{
-    @apply mt-1 font-palanquin text-3xl
-    text-center  font-bold mb-9
+  
+  .member-info_h3 {
+    @apply mt-1 font-palanquin text-3xl text-center font-bold mb-2; /* Reduced mb to allow p to be closer */
   }
-  .member-info_p{
-    @apply font-montserrat text-slate-gray font-medium mb-10
+  
+  .member-info_p {
+    @apply font-montserrat text-slate-gray font-medium mb-0; /* Remove default margin */
   }
+
+  .reviews-section {
+    @apply container relative;
+  }
+  
+  .reviews-container {
+    @apply overflow-hidden hide-scrollbar whitespace-nowrap mt-8 w-full; /* Keeps items in a single line and hides overflow */
+  }
+  
+  .reviews-content {
+    @apply flex gap-8 min-w-fit w-full mb-8; /* Horizontal alignment with gaps between reviews */
+    animation: scroll 120s linear infinite; /* Smooth continuous scroll */
+  }
+  .reviews-container::before, .reviews-container::after {
+    display: none;
+    width: 100%; /* Hides gradient fade effect */
+  }
+  
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Scrolls halfway for a seamless loop */
+    }
+  }
+  
+  .review-card {
+    @apply flex-shrink-0 flex justify-center items-center p-8 
+    flex-col shadow-xl rounded-3xl border-slate-400  max-w-sm; 
+  }
+
+  .feedback {
+  @apply whitespace-normal overflow-hidden text-ellipsis; /* Keeps text within container */
+  display: -webkit-box; /* For multi-line truncation */
+  -webkit-line-clamp: 4; /* Limits to four lines (adjust as needed) */
+  -webkit-box-orient: vertical;
+}
+
+  
+
   .contact{
     @apply flex justify-center items-center shadow-xl bg-[#fff5f1] px-10 py-5 rounded-3xl gap-10  border-2 border-gray-200 mb-8 mx-5 xl:mx-60
   }

@@ -3,14 +3,13 @@ import { star } from '../assets/icons'
 
 const ReviewCard = ({imgURL, customerName, rating, feedback}) => {
   return (
-    <div className='flex justify-center items-center p-8
-    flex-col shadow-xl rounded-2xl border-slate-400 min-w-sm max-w-sm'>
+    <div className='review-card z-10 w-full'>
 
     {/* {imgURL ? {
       <img src={imgURL} alt={customerName}
         className='rounded-full object-cover 
         w-[120px] height-[120px]' /> */} 
-        <p className='mt-8 max-w-sm text-center info-text'>{ feedback }</p>
+        <p className='mt-8 max-w-2xl text-center info-text feedback'>{ feedback }</p>
         <div className='mt-3 flex flex-col justify-center items-center gap-2.5'>
             <img src={star} width={24} height={24}
             className='object-contain m-0' />

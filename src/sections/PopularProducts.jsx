@@ -34,6 +34,8 @@ const PopularProducts = () => {
           name={product.name}
           price ={product.price}
           rating={product.rating}
+          description={product.description}
+          link={product.url}
           />
         ))}
       </div>
