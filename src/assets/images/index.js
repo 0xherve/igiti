@@ -16,6 +16,7 @@ import headerLogo from './header-logo.png'
 import adultPuzzle from './adultPuzzle.jpeg'
 import kidsPuzzle from './kidsPuzzle.jpeg'
 
+import loadPic from './loadPic.svg'
 
 export {
    kids,
@@ -34,4 +35,5 @@ export {
     kidsPuzzle,
     adultPuzzle,
 
+    loadPic,
 }
