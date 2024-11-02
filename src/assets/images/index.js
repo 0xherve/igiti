@@ -1,5 +1,5 @@
-import kids from './kids.png'
-import adults from './adults.png'
+import kids from './kids.webp'
+import adults from './adults.webp'
 
 import hubert from './teamMembers/hubert.jpg'
 import paula from './teamMembers/paula.png'
@@ -13,8 +13,8 @@ import obed from './teamMembers/obed.jpeg'
 import footerLogo from './footer-logo.svg'
 import headerLogo from './header-logo.png'
 
-import adultPuzzle from './adultPuzzle.jpeg'
-import kidsPuzzle from './kidsPuzzle.jpeg'
+import adultPuzzle from './adultPuzzle.webp'
+import kidsPuzzle from './kidsPuzzle.webp'
 
 import loadPic from './loadPic.svg'
 
