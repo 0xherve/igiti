@@ -1,22 +1,8 @@
-import { useState, useEffect } from 'react';
 import ReviewCard from '../components/ReviewCard';
-import { client } from '../assets/sanityClient';
+import { useData } from '../DataContext';
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      const query = '*[_type=="reviews"] | order(rating desc)';
-      const data = await client.fetch(query);
-      if (data && data.length > 0) {
-        setReviews(data);
-      } else {
-        console.log("No data found");
-      }
-    };
-    fetchReviews();
-  }, []);
+  const { reviews } = useData();
 
   return (
     <section className="reviews-section">

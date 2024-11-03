@@ -1,24 +1,10 @@
-import { useState, useEffect } from 'react'
 // import {products} from '../constants'
-import { client, urlFor } from '../assets/sanityClient'
+import { urlFor } from '../assets/sanityClient'
 import PopularProductCard from '../components/PopularProductCard'
+import { useData } from '../DataContext';
 
 const PopularProducts = () => {
-  const [ products, setProducts ]= useState([]);
-  useEffect(()=>{
-    const fetchProducts = async ()=>{
-      const query = '*[_type=="products"]';
-      const data = await client.fetch(query)
-      if (data && data.length > 0 ){
-        setProducts(data)
-      }
-      else{
-        console.log("No data found")
-      }
-    }
-    fetchProducts()
-  },
-[])
+  const {products} = useData();
 
   return (
     <section className=' w-full'>

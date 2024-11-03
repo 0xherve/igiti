@@ -1,37 +1,12 @@
-import {useState, useEffect} from 'react'
 import { copyrightSign } from '../assets/icons'
 import {footerLogo} from '../assets/images'
 import Subscribe from '../components/Subscribe'
 import {Link} from 'react-router-dom'
-import {client, urlFor} from '../assets/sanityClient'
+import {urlFor} from '../assets/sanityClient'
+import { useData } from '../DataContext'
 
 const Footer = () => {
-  const [socialMedia, setSocialMedia] = useState([]);
-  const [footerLinks, setFooterLinks] = useState([])
-  useEffect(()=>{
-    const fetchSocials = async ()=>{
-      const query = '*[_type=="socials"]'
-      const data = await client.fetch(query)
-      if (data && data.length > 0){
-        setSocialMedia(data)
-      } 
-      else{
-        console.warn("no data found")
-      }
-    }
-    const fetchFooterLinks = async ()=>{
-      const query = '*[_type=="footerLinks"] | order( order asc )'
-      const data = await client.fetch(query)
-      if (data && data.length > 0){
-        setFooterLinks(data)
-      } 
-      else{
-        console.warn("no data found")
-      }
-    }
-    fetchSocials()
-    fetchFooterLinks()
-  }, [])
+ const { socialMedia, footerLinks } = useData()
 
   return (
     <footer className="padding-x lg:pt-12 py-5 lg:pb-8 bg-black">

@@ -1,22 +1,9 @@
-import { useState, useEffect } from 'react'
 import MemberCard from '../components/MemberCard'
-import {client, urlFor} from '../assets/sanityClient'
+import { urlFor} from '../assets/sanityClient'
+import { useData } from '../DataContext'
 
 const OurTeam = () => {
-  const [team, setTeam ] = useState([]);
-  useEffect(()=>{
-    const fetchTeam = async ()=>{
-      const query = '*[_type == "team"] | order (rank asc)';
-      const data = await client.fetch(query);
-      if (data && data.length > 0 ){
-        setTeam(data)
-      }
-      else{
-        console.warn('No team data found')
-      }
-    };
-    fetchTeam()
-  }, [])
+  const { team } = useData();
   return (
     <section >
       <h3 className="font-palanquin text-center

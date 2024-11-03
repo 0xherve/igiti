@@ -1,7 +1,4 @@
-// MainApp.js
-import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { client } from './assets/sanityClient'
 
 import Loader from './pages/Loader';
 import App from './App';
@@ -14,35 +11,13 @@ import Viewer from './pages/Viewer';
 import ScrollTop from './components/ScrollTop';
 import SanityStudio from './pages/SanityStudio';
 
-const MainApp = () => {
-  const [loading, setLoading] = useState(true);
+import { DataProvider, useData } from './DataContext.jsx'; // Import the context provider and hook
 
-  const loadData = async () => {
-    setLoading(true); // Start loading
-  
-    try {
-      const query = '*[]'
-      const data = await client.fetch(query)
-      if(data){
-        console.log('Website Fetched')
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false); // Stop loading
-    }
-  };
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // setLoading(false);
-      loadData()
-    }, 500); // Simulated load time, adjust as needed
-
-    return () => clearTimeout(timer);
-  }, []);
+const MainAppContent = () => {
+  const { loading } = useData(); // Access loading from DataContext
 
   if (loading) {
-    return <Loader />;
+    return <Loader />; // Show loader until all data is loaded
   }
 
   return (
@@ -61,6 +36,14 @@ const MainApp = () => {
       </main>
       <Footer />
     </Router>
+  );
+};
+
+const MainApp = () => {
+  return (
+    <DataProvider> {/* Wrap MainAppContent in DataProvider to provide data context */}
+      <MainAppContent />
+    </DataProvider>
   );
 };
 

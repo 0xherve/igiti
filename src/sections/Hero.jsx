@@ -1,30 +1,17 @@
-import { useState, useEffect } from "react";
+import { useData } from "../DataContext.jsx"; // Import useData from DataContext
 import Button from "../components/Button";
+import Loader from "../pages/Loader"; // Ensure Loader is imported
 import { arrowRight } from '../assets/icons';
 import ShoeCard from "../components/ShoeCard";
-import { client, urlFor } from "../assets/sanityClient";
+import { urlFor } from "../assets/sanityClient";
 
 const Hero = () => {
-  const [product, setProduct] = useState(null); // Set initial state to null
-  const [puzzles, setPuzzles] = useState([]);
+  const { puzzles, product, setProduct, loading } = useData(); // Access DataContext properties
 
-  useEffect(() => {
-    const fetchPuzzle = async () => {
-      const query = '*[_type == "puzzles"]{imgName, thumbnail}';
-      const data = await client.fetch(query);
-      if (data && data.length > 0) {
-        setPuzzles(data);
-        setProduct(urlFor(data[0].thumbnail).url()); // Set the first image as default
-      } else {
-        console.warn("No puzzle images found");
-      }
-    };
-
-    fetchPuzzle();
-  }, []);
+  if (loading) return <Loader />; // Display loader if data is loading
 
   return (
-    <section id="home" className="hero ">
+    <section id="home" className="hero">
       <div className="hero-title">
         <h1 className="hero-h1">
           <span>Bringing Africa to </span>
@@ -33,8 +20,9 @@ const Hero = () => {
         <p className="hero-text">Journey through Africa Piece by Piece</p>
         <Button label="Shop Now" iconURL={arrowRight} link="https://igitiecom.netlify.app/" />
       </div>
+
       <div className="hero-img max-lg:mx-2">
-        {product && ( // Ensure product has been set
+        {product && (
           <img
             src={product}
             alt="Puzzle Collection"
@@ -43,12 +31,13 @@ const Hero = () => {
             className="object-contain relative z-5 rounded-3xl"
           />
         )}
+        
         <div className="hero-pics">
           {puzzles.map((item, index) => (
             <div key={index}>
               <ShoeCard
-                imgURL={urlFor(item.thumbnail).url()} // Pass URL directly to ShoeCard
-                changeBigShoeImg={setProduct} // Directly pass the setter function
+                imgURL={urlFor(item.thumbnail).url()} // Generate image URL using Sanity helper
+                changeBigShoeImg={setProduct} // Pass the function to update main product image
                 bigShoeImg={product}
               />
             </div>
