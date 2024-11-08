@@ -1,14 +1,14 @@
-import { useData } from "../DataContext.jsx"; // Import useData from DataContext
+import { useData } from "../DataContext.jsx";
 import Button from "../components/Button";
-import Loader from "../pages/Loader"; // Ensure Loader is imported
+import Loader from "../pages/Loader";
 import { arrowRight } from '../assets/icons';
 import ShoeCard from "../components/ShoeCard";
 import { urlFor } from "../assets/sanityClient";
 
 const Hero = () => {
-  const { puzzles, product, setProduct, loading } = useData(); // Access DataContext properties
+  const { puzzles, product, setProduct, loading, store } = useData();
 
-  if (loading) return <Loader />; // Display loader if data is loading
+  if (loading) return <Loader />;
 
   return (
     <section id="home" className="hero">
@@ -18,7 +18,11 @@ const Hero = () => {
           <span className="text-orange-500">Life.</span>
         </h1>
         <p className="hero-text">Journey through Africa Piece by Piece</p>
-        <Button label="Shop Now" iconURL={arrowRight} link="https://igitiecom.netlify.app/" />
+        <Button
+          label={store?.label || "Shop Now"} // Added fallback text for label
+          iconURL={arrowRight}
+          link={store?.link || "https://igiti.myshopify.com/"} // Added fallback URL for link
+        />
       </div>
 
       <div className="hero-img max-lg:mx-2">
@@ -31,13 +35,13 @@ const Hero = () => {
             className="object-contain relative z-5 rounded-3xl"
           />
         )}
-        
+
         <div className="hero-pics">
           {puzzles.map((item, index) => (
             <div key={index}>
               <ShoeCard
-                imgURL={urlFor(item.thumbnail).url()} // Generate image URL using Sanity helper
-                changeBigShoeImg={setProduct} // Pass the function to update main product image
+                imgURL={urlFor(item.thumbnail).url()}
+                changeBigShoeImg={setProduct}
                 bigShoeImg={product}
               />
             </div>

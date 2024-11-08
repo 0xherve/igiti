@@ -6,6 +6,7 @@ import teamMembers from './teamMembers';
 import footerLinks from './footerLinks';
 import socialMedia from './socialMedia';
 import customerReviews from './customerReview';
+import shopButton from './shopButton';
 
 // Export them as an array for the main schema to use
 export const schemaTypes = [
@@ -17,4 +18,5 @@ export const schemaTypes = [
     customerReviews,
     socialMedia,
     footerLinks,
+    shopButton,
 ];
