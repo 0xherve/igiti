@@ -1,7 +1,7 @@
 // schemas/shopButton.js
 export default {
     name: 'store',
-    title: 'Store Link',
+    title: 'Store Link(only the first item will be shown)',
     type: 'document',
     fields: [
       { name: 'label',
@@ -19,6 +19,5 @@ export default {
           description: 'The link for the store link' 
         },
        ],
-       description: "You can only have one button"
   };
   
