@@ -90,7 +90,7 @@
   }
   
   .member-info_h3 {
-    @apply mt-1 font-palanquin text-3xl text-center font-bold mb-2; /* Reduced mb to allow p to be closer */
+    @apply mt-1 font-palanquin text-2xl text-center font-bold mb-2; /* Reduced mb to allow p to be closer */
   }
   
   .member-info_p {

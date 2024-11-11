@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "createdAt": "2024-11-09T16:53:32.959Z",
+  "createdAt": "2024-11-11T10:44:31.889Z",
   "workspaces": [
     {
       "name": "default",
       "title": "igiti Landing Page",
       "basePath": "/",
       "dataset": "production",
-      "schema": "4b8b9816.create-schema.json"
+      "schema": "06b68bfe.create-schema.json"
     }
   ]
 }
