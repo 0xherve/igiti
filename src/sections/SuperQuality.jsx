@@ -1,7 +1,9 @@
 import Button from '../components/Button'
 import {adults} from '../assets/images'
+import {useData} from '../DataContext'
 
 const SuperQuality = () => {
+  const {store} = useData()
   return (
     
     <section id="about-us" 
@@ -13,7 +15,7 @@ const SuperQuality = () => {
           <p className="lg:max-w-lg info-text">
           With a commitment to providing high-quality, culturally relevant products, our team is dedicated to creating experiences that enrich lives and spark imagination.</p>
           <div>
-          <Button label="Shop Now" link='https://igitiecom.netlify.app/'></Button>
+          <Button label="Shop Now" link={store.link || 'https://igiti.myshopify.com/'}></Button>
           </div>
       </div>
       <div className='flex-1 flex justify-center items-center '>

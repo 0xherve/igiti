@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import { useData } from '../DataContext';
 
 const MenuBar = () => {
-  const { footerLinks, store } = useData(); // Access footerLinks from DataContext
+  const { navLinks, store } = useData(); // Access navLinks and store from DataContext
   const [isOpen, setIsOpen] = useState(false);
 
+  // Function to handle menu close
   const handleCloseMenu = () => {
-    setIsOpen(false);
+    setIsOpen(false); // Close the menu by setting isOpen to false
   };
 
   return (
@@ -30,32 +31,43 @@ const MenuBar = () => {
         >
           <MenuItems
             static
-            className={`absolute items-center right-0 w-36 object-contain gap-16 my-2 origin-top-right rounded-md bg-pale-blue text-sm p-5 z-20 ${isOpen ? 'block' : 'hidden'}`}
+            className="absolute right-0 w-36 object-contain gap-16 my-2 origin-top-right rounded-md bg-pale-blue text-sm p-5 z-20 "
           >
-            <ul>
-              {footerLinks && footerLinks.length > 0 ? (
-                footerLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link to={link.href} className="nav-li w-full" onClick={handleCloseMenu}>
+            {/* Flex container for nav links */}
+            <ul className="flex flex-col gap-1">
+              {navLinks && navLinks.length > 0 ? (
+                navLinks.map((link) => (
+                  <MenuItem key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="nav-li w-auto"
+                      onClick={() => {
+                        handleCloseMenu(); // Close menu after link is clicked
+                      }}
+                    >
                       {link.label}
                     </Link>
-                  </li>
+                  </MenuItem>
                 ))
               ) : (
                 <p>Loading...</p>
               )}
-              <MenuItem>
-                <li>
-                  <a
-                    href={store.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-fit relative border border-orange-400 px-2 rounded-full"
-                  >
-                    <button onClick={handleCloseMenu}>{store.label}</button>
-                  </a>
-                </li>
-              </MenuItem>
+              {store && (
+                <MenuItem>
+                <a
+                href={store.link || 'igiti.myshopify.com'} // Ensure there's a fallback if store.url is undefined
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-fit relative border border-orange-400 px-2 rounded-full"
+                onClick={() => {
+                  handleCloseMenu(); // Close the menu
+                }}
+              >
+                {store.label}
+              </a>
+
+                </MenuItem>
+              )}
             </ul>
           </MenuItems>
         </Transition>

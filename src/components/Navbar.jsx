@@ -7,7 +7,7 @@ import MenuBar from './MenuBar';
 
 const Navbar = () => {
   const { navLinks, store } = useData(); // Access navLinks from global data context
-  console.log(store)
+  // console.log(navLinks)
   return (
     <nav className='nav max-lg:px-8'>
       <a href="/">
@@ -22,7 +22,7 @@ const Navbar = () => {
           </li>
         ))}
         <li className='right-12 absolute'>
-          <Button label={store.label} link={`${store.link} || https://igiti.myshopify.com/`} />
+          <Button label={store.label} link={store.link || 'igiti.myshopify.com'} />
         </li>
       </ul>
 

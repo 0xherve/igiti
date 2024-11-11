@@ -15,6 +15,7 @@ export const DataProvider = ({ children }) => {
   const [socialMedia, setSocialMedia] = useState([]);
   const [footerLinks, setFooterLinks] = useState([]);
   const [store, setStore] = useState(null);
+  const [navLinks, setNavLinks] = useState([]);  // New state for navLinks
 
   const loadAllData = useCallback(async () => {
     setLoading(true);
@@ -28,7 +29,8 @@ export const DataProvider = ({ children }) => {
         "team": *[_type == "team"] | order(rank asc),
         "footerLinks": *[_type == "footerLinks"] | order(order asc),
         "socialMedia": *[_type == "socials"],
-        "store": *[_type == "store"][0] // Fetch the first store document
+        "store": *[_type == "store"][0],
+        "navLinks": *[_type == "navLinks"] | order(order asc)  // Query for navLinks
       }`;
 
       const data = await client.fetch(query);
@@ -41,7 +43,8 @@ export const DataProvider = ({ children }) => {
       setTeam(data.team || []);
       setFooterLinks(data.footerLinks || []);
       setSocialMedia(data.socialMedia || []);
-      setStore(data.store || null); // Store the fetched store data
+      setStore(data.store || null);
+      setNavLinks(data.navLinks || []);  // Set the navLinks data
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -65,9 +68,10 @@ export const DataProvider = ({ children }) => {
       socialMedia,
       footerLinks,
       store,
+      navLinks,  // Provide navLinks in the context
       setProduct, // Provide setProduct function in context
     }),
-    [loading, puzzles, product, products, services, reviews, team, socialMedia, footerLinks, store]
+    [loading, puzzles, product, products, services, reviews, team, socialMedia, footerLinks, store, navLinks]
   );
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
