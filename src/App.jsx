@@ -5,7 +5,7 @@ import Reviews from "./sections/Reviews";
 
 const App = () =>(
 <main className="relative ">
-    <Element name="hero" className="xl:padding-l wide:padding-r ">
+    <Element name="hero" className="padding-x">
       <Hero/></Element>
       <Element name="products" className="px-2 py-12 bg-pale-blue mt-8">
         <PopularProducts/>
