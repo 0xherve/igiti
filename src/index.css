@@ -98,7 +98,7 @@
   }
 
   .reviews-section {
-    @apply container relative;
+    @apply w-full relative;
   }
   
   .reviews-container {
@@ -107,7 +107,7 @@
   
   .reviews-content {
     @apply flex gap-8 min-w-fit w-full mb-8; /* Horizontal alignment with gaps between reviews */
-    animation: scroll 45s linear infinite; /* Smooth continuous scroll */
+    animation: scroll 75s linear infinite; /* Smooth continuous scroll */
   }
   .reviews-container::before, .reviews-container::after {
     display: none;
