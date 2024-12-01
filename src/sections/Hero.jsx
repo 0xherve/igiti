@@ -2,54 +2,230 @@ import { useData } from "../DataContext.jsx";
 import Button from "../components/Button";
 import Loader from "../pages/Loader";
 import { arrowRight } from '../assets/icons';
-import ShoeCard from "../components/ShoeCard";
-import { urlFor } from "../assets/sanityClient";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import { useEffect, useRef, useState } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const { puzzles, product, setProduct, loading, store } = useData();
 
   if (loading) return <Loader />;
 
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [hasClicked, setHasClicked] = useState(false);
+
+  const [vidloading, setVidLoading] = useState(true);
+  const [loadedVideos, setLoadedVideos] = useState(0);
+
+  const totalVideos = 5;
+  const nextVdRef = useRef(null);
+
+  const handleVideoLoad = () => {
+    setLoadedVideos((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (loadedVideos === totalVideos - 1) {
+      setVidLoading(false);
+    }
+  }, [loadedVideos]);
+
+  const handleMiniVdClick = () => {
+    setHasClicked(true);
+
+    setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+  };
+
+  const getVideoSrc = (index) => `videos/hero-${index}.mp4`;
+
+  useGSAP(
+    () => {
+      if (hasClicked) {
+        gsap.set("#next-video", { visibility: "visible" });
+        gsap.to("#next-video", {
+          transformOrigin: "center center",
+          scale: 1,
+          width: "100%",
+          height: "100%",
+          duration: 1,
+          ease: "power1.inOut",
+          onStart: () => nextVdRef.current.play(),
+        });
+        gsap.from("#current-video", {
+          transformOrigin: "center center",
+          scale: 0,
+          duration: 1.5,
+          ease: "power1.inOut",
+        });
+      }
+    },
+    {
+      dependencies: [currentIndex],
+      revertOnUpdate: true,
+    }
+  );
+
+  useGSAP(() => {
+    gsap.set("#video-frame", {
+      clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+      borderRadius: "0% 0% 40% 10%",
+    });
+    gsap.from("#video-frame", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      borderRadius: "0% 0% 0% 0%",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#video-frame",
+        start: "center center",
+        end: "bottom center",
+        scrub: true,
+      },
+    });
+  });
+
   return (
-    <section id="home" className="hero">
-      <div className="hero-title">
-        <h1 className="hero-h1">
-          <span>Bringing Africa to </span>
-          <span className="text-orange-500">Life.</span>
-        </h1>
-        <p className="hero-text">Journey through Africa Piece by Piece</p>
-        <Button
-          label={store?.label || "Shop Now"} // Added fallback text for label
-          iconURL={arrowRight}
-          link={"https://buy.igiti.africa/" || store.link} // Added fallback URL for link
-        />
-      </div>
-
-      <div className="hero-img max-lg:mx-2">
-        {product && (
-          <img
-            src={product}
-            alt="Puzzle Collection"
-            width={610}
-            height={500}
-            className="object-contain relative z-5 rounded-3xl"
-          />
-        )}
-
-        <div className="hero-pics">
-          {puzzles.map((item, index) => (
-            <div key={index}>
-              <ShoeCard
-                imgURL={urlFor(item.thumbnail).url()}
-                changeBigShoeImg={setProduct}
-                bigShoeImg={product}
-              />
+  <section id="home" >
+    <div className="relative h-dvh w-screen overflow-x-hidden">
+        {loading && (
+            <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+            {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
+            <div className="three-body">
+                <div className="three-body__dot"></div>
+                <div className="three-body__dot"></div>
+                <div className="three-body__dot"></div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+            </div>
+        )}
+        <div id='video-frame' className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'>
+            <div>
+                <div className='mask-clip-pathmask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg'>
+                    <div  
+                    onClick={handleMiniVdClick}
+                    className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
+                      >
+                     <video
+                        ref={nextVdRef}
+                        src={getVideoSrc((currentIndex % totalVideos) + 1)}
+                        loop
+                        muted
+                        id="current-video"
+                        className="size-64 origin-center scale-150 object-cover object-center"
+                        onLoadedData={handleVideoLoad}
+                     />
+                    </div>
+                </div>
+                <video
+                ref={nextVdRef}
+                src={getVideoSrc(currentIndex)}
+                loop
+                muted
+                id="next-video"
+                className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
+                onLoadedData={handleVideoLoad}
+            />
+            <video
+                src={getVideoSrc(
+                currentIndex === totalVideos - 1 ? 1 : currentIndex
+                )}
+                autoPlay
+                loop
+                muted
+                className="absolute left-0 top-0 size-full object-cover object-center"
+                onLoadedData={handleVideoLoad}
+            />
+            </div>
+            <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
+            Li<b>f</b>e
+            </h1>
+
+            <div className="absolute left-0 top-0 z-40 size-full">
+             <div className="mt-24 px-5 sm:px-10">
+                <h1 className="special-font hero-heading text-blue-100">
+                Bringing <b>A</b>frica to
+                </h1>
+
+                <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
+                Journey through Africa <br /> Piece by Piece 
+                </p>
+                 <Button
+                  label={store?.label || "Shop Now"} // Added fallback text for label
+                  iconURL={arrowRight}
+                  link={store?.link || "https://buy.igiti.africa/"} // Added fallback URL for link
+                />
+             </div>
+          </div>
+         </div>
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
+        Li<b>f</b>e
+      </h1>
+    </div>
+</section>
   );
 };
 
 export default Hero;
+//     <div className="relative h-dvh w-screen overflow-x-hidden">
+
+
+//   <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
+//     {/* Mini Video Control */}
+//     <div className="mask-clip-pathmask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+//       <div
+//         onClick={handleMiniVdClick}
+//         className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
+//       >
+//         <video
+//           ref={nextVdRef}
+//           src={getVideoSrc((currentIndex % totalVideos) + 1)}
+//           loop
+//           muted
+//           id="current-video"
+//           className="size-64 origin-center scale-150 object-cover object-center"
+//           onLoadedData={handleVideoLoad}
+//         />
+//       </div>
+//     </div>
+
+//     {/* Background Videos */}
+//     <video
+//       ref={nextVdRef}
+//       src={getVideoSrc(currentIndex)}
+//       loop
+//       muted
+//       id="next-video"
+//       className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
+//       onLoadedData={handleVideoLoad}
+//     />
+//     <video
+//       src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
+//       autoPlay
+//       loop
+//       muted
+//       className="absolute left-0 top-0 size-full object-cover object-center"
+//       onLoadedData={handleVideoLoad}
+//     />
+
+//     {/* Overlay Text and Button */}
+//     <div className="absolute left-0 top-0 z-40 size-full">
+//       <div className="mt-24 px-5 sm:px-10">
+//         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
+//           Bringing <b>A</b>frica to
+//         </h1>
+//         <p className="hero-text">Journey through Africa Piece by Piece</p>
+//         <Button
+//           label={store?.label || "Shop Now"} // Added fallback text for label
+//           iconURL={arrowRight}
+//           link={store?.link || "https://buy.igiti.africa/"} // Added fallback URL for link
+//         />
+//       </div>
+//     </div>
+
+//     {/* Large Background Title */}
+//     <h1 className="special-font hero-heading text-blue-100">
+//       Li<b>f</b>e
+//     </h1>
+//   </div>
+// </div>
