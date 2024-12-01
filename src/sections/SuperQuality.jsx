@@ -15,7 +15,7 @@ const SuperQuality = () => {
           <p className="lg:max-w-lg info-text">
           With a commitment to providing high-quality, culturally relevant products, our team is dedicated to creating experiences that enrich lives and spark imagination.</p>
           <div>
-          <Button label="Shop Now" link={store.link || 'https://igiti.myshopify.com/'}></Button>
+          <Button label="Shop Now" link={'https://buy.igiti.africa/'}></Button>
           </div>
       </div>
       <div className='flex-1 flex justify-center items-center '>
