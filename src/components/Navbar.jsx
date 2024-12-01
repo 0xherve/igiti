@@ -22,7 +22,7 @@ const Navbar = () => {
           </li>
         ))}
         <li className='right-12 absolute'>
-          <Button label={store.label} link={store.link || 'igiti.myshopify.com'} />
+          <Button label={store.label} link={'https://buy.igiti.africa' || store.link} />
         </li>
       </ul>
 

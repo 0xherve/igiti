@@ -21,7 +21,7 @@ const Hero = () => {
         <Button
           label={store?.label || "Shop Now"} // Added fallback text for label
           iconURL={arrowRight}
-          link={"https://buy.igiti.africa/"} // Added fallback URL for link
+          link={"https://buy.igiti.africa/" || store.link} // Added fallback URL for link
         />
       </div>
 
