@@ -8,7 +8,7 @@ import MenuBar from './MenuBar';
 const Navbar = () => {
   const { navLinks, store } = useData(); // Access navLinks from global data context
   return (
-    <div className="relative">
+    <div className="relative hidden sm:block">
       <div className="absolute z-20 inset-x-0 top-4 flex justify-center">
       <div className="bg-slate-100 opacity-85 rounded-2xl shadow-lg px-4 max-w-4xl flex items-center justify-between">
         <nav className="flex items-center justify-between px-4 -my-2 gap-12">

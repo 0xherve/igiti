@@ -1,9 +1,11 @@
 import Button from '../components/Button'
 import {adults} from '../assets/images'
 import {useData} from '../DataContext'
+import ShoeCard from "../components/ShoeCard";
+import { urlFor } from "../assets/sanityClient";
 
 const SuperQuality = () => {
-  const {store} = useData()
+  const { puzzles, product, setProduct, store } = useData();
   return (
     
     <section id="about-us" 
@@ -18,9 +20,28 @@ const SuperQuality = () => {
           <Button label="Shop Now" link={'https://buy.igiti.africa/' || store.link}></Button>
           </div>
       </div>
-      <div className='flex-1 flex justify-center items-center '>
-        <img src={adults} alt="Preview" 
-        width={570} height={522} className='object-contain rounded-3xl'/>
+      <div className="hero-img max-lg:mx-2">
+        {product && (
+          <img
+            src={product}
+            alt="Puzzle Collection"
+            width={610}
+            height={500}
+            className="object-contain relative z-5 rounded-3xl"
+          />
+        )}
+
+        <div className="hero-pics">
+          {puzzles.map((item, index) => (
+            <div key={index}>
+              <ShoeCard
+                imgURL={urlFor(item.thumbnail).url()}
+                changeBigShoeImg={setProduct}
+                bigShoeImg={product}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
