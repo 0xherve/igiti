@@ -35,7 +35,7 @@
     @apply w-full flex lg:flex-row flex-col justify-center min-h-fit gap-10 max-container 
   }
   .hero-img{
-    @apply relative flex-1 flex flex-col justify-center items-center lg:min-h-full max-lg:py-4 bg-center
+    @apply relative flex-1 flex flex-col justify-center items-center max-lg:py-4 bg-center
   }
   .hero-title{
     @apply relative lg:w-2/5 max-lg:padding-x flex flex-col justify-start items-start 

@@ -22,7 +22,7 @@ const ShoeCard = ({ imgURL, changeBigShoeImg, bigShoeImg }) => {
             alt="Puzzle Thumbnail"
             width={125}
             height={105}
-            className="rounded-xl"
+            className="rounded-xl object-contain"
           />
         ) : (
           <p>No Image Available</p>

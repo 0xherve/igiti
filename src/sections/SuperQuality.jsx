@@ -10,7 +10,7 @@ const SuperQuality = () => {
     
     <section id="about-us" 
     className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container">
-      <div className="flex flex-1 flex-col gap-10">
+      <div className="flex flex-1 flex-col gap-16 text-xl">
         <h2 className="font-palanquin font-bold capitalize text-4xl lg:max-w-lg">
            Igniting <span> </span>
           <span className="text-orange-500 inline-block"> Creativity</span>, celebrating culture. </h2>
@@ -25,9 +25,8 @@ const SuperQuality = () => {
           <img
             src={product}
             alt="Puzzle Collection"
-            width={610}
-            height={500}
-            className="object-contain relative z-5 rounded-3xl"
+            width={450} height={450}
+            className="relative z-5 rounded-3xl scale-y-95"
           />
         )}
 
