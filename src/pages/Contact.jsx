@@ -52,8 +52,7 @@ const Contact = () => {
 
   return (
     <section
-      className="contact mt-24"
-    >
+      className="contact mt-12">
       <div className="contact-container">
         <h3 className="contact-container_h3 ">Let's Talk</h3 >
         <p>

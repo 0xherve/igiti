@@ -27,7 +27,7 @@ const MainAppContent = () => {
       <main className="mx-auto">
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} className="mt-24" />
           <Route path="/faq" element={<Faq />} />
           <Route path="/return-policy" element={<Viewer />} />
           <Route path="/studio" element={<SanityStudio />} />
