@@ -2,7 +2,7 @@ import { star } from '../assets/icons'
 
 const PopularProductCard = ( {link, imgURL, name, price, rating, description}) => {
   return (
-    <a target='blank' href={link}>
+    <a href={link}>
       <div className="product-card mb-8">
       <img src={imgURL} alt={name} className='w-[350px] h-auto rounded-xl object-contain' />
       <div className=" flex justify-center gap-2">

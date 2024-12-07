@@ -55,11 +55,11 @@
   }
 
   .product-card {
-    @apply flex shadow-lg rounded-3xl flex-col w-[400px] h-[550px] p-10 gap-5 justify-center items-center;
+    @apply flex shadow-lg rounded-3xl flex-col w-[400px] h-[550px] p-8 gap-5 justify-center items-center;
   }
   
   .popular-text{
-    @apply lg:max-w-xl mt-2 font-montserrat text-2xl font-medium text-center info-text items-center
+    @apply lg:max-w-xl mt-2 mb-16 font-montserrat text-2xl font-medium text-center info-text items-center
   }
   .service-contain{
     @apply flex flex-col rounded-[20px] shadow-3xl px-10 py-16 

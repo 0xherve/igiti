@@ -1,77 +1,92 @@
-import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
+import { useEffect, useRef, useState } from 'react';
 import { hamburger } from '../assets/icons';
-import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../DataContext';
 
 const MenuBar = () => {
-  const { navLinks, store } = useData(); // Access navLinks and store from DataContext
   const [isOpen, setIsOpen] = useState(false);
+  const { navLinks, store } = useData();
+  const sidebarRef = useRef(null);
 
-  // Function to handle menu close
-  const handleCloseMenu = () => {
-    setIsOpen(false); // Close the menu by setting isOpen to false
+  // Function to close sidebar when clicking outside
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target) && !event.target.closest('button')) {
+      setIsOpen(false);
+    }
   };
 
-  return (
-    <div>
-      <Menu as="div" className="relative">
-        <MenuButton onClick={() => setIsOpen(!isOpen)}>
-          <img src={hamburger} alt="hamburger" width={36} height={36} />
-        </MenuButton>
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
 
-        <Transition
-          as={Fragment}
-          enter="transition duration-100 ease-out"
-          enterFrom="transform opacity-0 scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition duration-75 ease-in"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <MenuItems
-            static
-            className="absolute right-0 w-36 object-contain gap-16 my-2 origin-top-right rounded-md bg-pale-blue text-sm p-5 z-20 "
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  return (
+    <div className="flex relative">
+      {/* Sidebar */}
+      <aside 
+        ref={sidebarRef}
+        className={`h-screen w-[60vw] sm:w-[300px] fixed top-0 left-0 z-50 overflow-y-auto transition-all duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} bg-pale-blue`}
+      >
+        <div className="p-4">
+          <button 
+            onClick={() => setIsOpen(false)} 
+            className="absolute top-4 right-4 text-black text-2xl"
+            aria-label="Close menu"
           >
-            {/* Flex container for nav links */}
-            <ul className="flex flex-col gap-1">
+            ×
+          </button>
+          <nav>
+            <ul className="flex flex-col gap-4 mt-12">
               {navLinks && navLinks.length > 0 ? (
                 navLinks.map((link) => (
-                  <MenuItem key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="nav-li w-auto"
-                      onClick={() => {
-                        handleCloseMenu(); // Close menu after link is clicked
-                      }}
+                  <li key={link.id || link.label}>
+                    <Link 
+                      to={link.href} 
+                      className="text-black hover:text-gray-600 py-2"
+                      onClick={() => setIsOpen(false)} // Close sidebar on link click
                     >
                       {link.label}
                     </Link>
-                  </MenuItem>
+                  </li>
                 ))
               ) : (
-                <p>Loading...</p>
+                <li className="text-gray-500">Loading...</li>
               )}
               {store && (
-                <MenuItem>
-                <a
-                href={store.link || 'igiti.myshopify.com'} // Ensure there's a fallback if store.url is undefined
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-fit relative border border-orange-400 px-2 rounded-full"
-                onClick={() => {
-                  handleCloseMenu(); // Close the menu
-                }}
-              >
-                {store.label}
-              </a>
-
-                </MenuItem>
+                <li>
+                  <a 
+                    href={store.link || 'igiti.myshopify.com'} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-fit relative border border-orange-400 px-4 py-2 rounded-full sm:hidden text-center"
+                    onClick={() => setIsOpen(false)} // Close sidebar on store link click
+                  >
+                    {store.label}
+                  </a>
+                </li>
               )}
             </ul>
-          </MenuItems>
-        </Transition>
-      </Menu>
+          </nav>
+        </div>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1">
+        <button 
+          onClick={() => setIsOpen(true)} 
+          className="p-4 lg:hidden" 
+          aria-label="Open menu"
+        >
+          <img src={hamburger} alt="Menu" width={36} height={36} />
+        </button>
+      </main>
     </div>
   );
 };

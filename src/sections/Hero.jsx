@@ -41,7 +41,7 @@ const Hero = () => {
   {/* Video Frame with Overlay */}
   <div
     id="video-frame"
-    className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black-200"
+    className="relative h-dvh w-screen overflow-hidden rounded-lg bg-black-200"
   >
     {/* Background Video */}
     <video
