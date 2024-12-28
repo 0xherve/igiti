@@ -1,0 +1,129 @@
+{
+    "title": "Privacy Policy",
+    "effective_date": "1st January 2025",
+    "introduction": "Igiti Enterprises (“we,” “our,” or “us”) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and share your information when you interact with our products, services, and website.",
+    "sections": [
+      {
+        "heading": "1. Information We Collect",
+        "subsections": [
+          {
+            "subheading": "1.1. Information You Provide Directly",
+            "items": [
+              "Name, email address, phone number, and shipping/billing address when you place an order.",
+              "Payment details for transaction purposes (processed securely).",
+              "Feedback or inquiries submitted through our website or email."
+            ]
+          },
+          {
+            "subheading": "1.2. Automatically Collected Information",
+            "items": [
+              "IP address, browser type, operating system, and other technical information when you access our website.",
+              "Cookies and tracking technologies to improve user experience."
+            ]
+          },
+          {
+            "subheading": "1.3. Third-Party Information",
+            "items": [
+              "If you use social media to interact with us, we may collect publicly available information from your profile."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "2. How We Use Your Information",
+        "subsections": [
+          {
+            "subheading": "2.1. To Fulfill Orders",
+            "items": [
+              "Process payments and deliver purchased products.",
+              "Communicate with you about your order status."
+            ]
+          },
+          {
+            "subheading": "2.2. To Improve Our Services",
+            "items": [
+              "Analyze user behavior to enhance website performance.",
+              "Conduct customer surveys and research."
+            ]
+          },
+          {
+            "subheading": "2.3. To Communicate with You",
+            "items": [
+              "Respond to your inquiries and requests.",
+              "Send marketing emails or updates if you’ve subscribed to our newsletter (you may opt out anytime)."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "3. Sharing Your Information",
+        "subsections": [
+          {
+            "subheading": "3.1. Service Providers",
+            "items": [
+              "Shipping companies, payment processors, and IT service providers to facilitate our operations."
+            ]
+          },
+          {
+            "subheading": "3.2. Legal Requirements",
+            "items": [
+              "If required by law, to comply with legal obligations or to protect our rights."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "4. Cookies and Tracking",
+        "subsections": [
+          {
+            "subheading": "4.1. Cookies",
+            "content": "We use cookies to improve your browsing experience. These small data files are stored on your device and help us remember your preferences."
+          },
+          {
+            "subheading": "4.2. Managing Cookies",
+            "content": "You can disable cookies through your browser settings, but some features of our website may not function properly without them."
+          }
+        ]
+      },
+      {
+        "heading": "5. Data Retention",
+        "content": "We retain your personal data only for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law."
+      },
+      {
+        "heading": "6. Your Rights",
+        "subsections": [
+          {
+            "subheading": "6.1. Access and Correction",
+            "content": "Request access to or correction of your personal information."
+          },
+          {
+            "subheading": "6.2. Data Deletion",
+            "content": "Request the deletion of your data, subject to legal and operational obligations."
+          },
+          {
+            "subheading": "6.3. Opt-Out",
+            "content": "Unsubscribe from marketing communications at any time."
+          }
+        ]
+      },
+      {
+        "heading": "7. Data Security",
+        "content": "We implement appropriate technical and organizational measures to protect your personal data from unauthorized access, loss, or misuse. However, no system is 100% secure, and we cannot guarantee absolute security."
+      },
+      {
+        "heading": "8. Third-Party Links",
+        "content": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these websites. Please review their privacy policies before providing any personal data."
+      },
+      {
+        "heading": "9. Updates to This Policy",
+        "content": "We may update this Privacy Policy from time to time. Changes will be posted on our website and become effective immediately upon posting."
+      }
+    ],
+    "contact": {
+      "email": "info@igiti.africa",
+      "phone": "+250 788 444 011",
+      "address": "Insert Physical Address Here"
+    },
+    "acknowledgment": "By using Igiti Enterprises’ website and services, you acknowledge that you have read, understood, and agreed to this Privacy Policy."
+  }
+  

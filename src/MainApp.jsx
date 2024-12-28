@@ -9,9 +9,11 @@ import Footer from './sections/Footer';
 import Faq from './pages/Faq';
 import Viewer from './pages/Viewer';
 import ScrollTop from './components/ScrollTop';
-import SanityStudio from './pages/SanityStudio';
+// import SanityStudio from './pages/SanityStudio';
 
 import { DataProvider, useData } from './DataContext.jsx'; // Import the context provider and hook
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
+import TermsConditions from './components/termsConditions.jsx';
 
 const MainAppContent = () => {
   const { loading } = useData(); // Access loading from DataContext
@@ -29,8 +31,9 @@ const MainAppContent = () => {
           <Route path="/" element={<App />} />
           <Route path="/contact" element={<Contact />} className="mt-24" />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/return-policy" element={<Viewer />} />
-          <Route path="/studio" element={<SanityStudio />} />
+          <Route path="/return-policy" element={<Viewer />} />          
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>

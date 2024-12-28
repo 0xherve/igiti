@@ -14,7 +14,7 @@ const ShoeCard = ({ imgURL, changeBigShoeImg, bigShoeImg }) => {
     >
       <div
         className="flex justify-center items-center object-contain
-       sm:min-w-40 sm:min-h-40 rounded-xl"
+       sm:min-w-40 sm:min-h-30 rounded-xl"
       >
         {imgURL ? (
           <img

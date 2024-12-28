@@ -25,7 +25,7 @@ const SuperQuality = () => {
           <img
             src={product}
             alt="Puzzle Collection"
-            width={450} height={450}
+            width={450} height={350}
             className="relative z-5 rounded-3xl scale-y-95"
           />
         )}
