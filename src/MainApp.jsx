@@ -14,6 +14,7 @@ import ScrollTop from './components/ScrollTop';
 import { DataProvider, useData } from './DataContext.jsx'; // Import the context provider and hook
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
 import TermsConditions from './components/termsConditions.jsx';
+import Sponsors from './sections/Sponsors';
 
 const MainAppContent = () => {
   const { loading } = useData(); // Access loading from DataContext
@@ -34,6 +35,7 @@ const MainAppContent = () => {
           <Route path="/return-policy" element={<Viewer />} />          
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/sponsors" element={<Sponsors />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>

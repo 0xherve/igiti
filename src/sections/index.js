@@ -6,8 +6,9 @@ import Services from "./Services";
 // import SpecialOffer from "./SpecialOffer";
 import Contact from "../pages/Contact";
 import SuperQuality from "./SuperQuality";
+import Sponsors from "./Sponsors";
 
 export{
     Hero, Footer, OurTeam, PopularProducts,
-    Services,Contact, SuperQuality
+    Services,Contact, SuperQuality, Sponsors
 }

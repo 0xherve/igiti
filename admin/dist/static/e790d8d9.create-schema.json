@@ -555,5 +555,44 @@
     "name": "store",
     "type": "document",
     "title": "Store Link(only the first item will be shown)"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Name of the product",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Image of the intended product highlight",
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "sponsors",
+    "type": "document",
+    "title": "Our Sponsors"
   }
 ]

@@ -2,7 +2,6 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
- 
     extend: {
       fontFamily: {
         palanquin: ['Palanquin', 'sans-serif'],
@@ -43,6 +42,15 @@ export default {
       },
       screens: {
         "wide": "1440px"
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-33.33% - 4rem))' }
+        }
+      },
+      animation: {
+        scroll: 'scroll 20s linear infinite'
       }
     },
   },

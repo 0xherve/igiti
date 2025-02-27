@@ -16,6 +16,7 @@ export const DataProvider = ({ children }) => {
   const [footerLinks, setFooterLinks] = useState([]);
   const [store, setStore] = useState(null);
   const [navLinks, setNavLinks] = useState([]);  // New state for navLinks
+  const [sponsors, setSponsors] = useState([]); // Add sponsors state
 
   const loadAllData = useCallback(async () => {
     setLoading(true);
@@ -30,7 +31,11 @@ export const DataProvider = ({ children }) => {
         "footerLinks": *[_type == "footerLinks"] | order(order asc),
         "socialMedia": *[_type == "socials"],
         "store": *[_type == "store"][0],
-        "navLinks": *[_type == "navLinks"] | order(order asc)  // Query for navLinks
+        "navLinks": *[_type == "navLinks"] | order(order asc),
+        "sponsors": *[_type == "sponsors"]{
+          name,
+          "image": image.asset->url
+        }
       }`;
 
       const data = await client.fetch(query);
@@ -45,6 +50,7 @@ export const DataProvider = ({ children }) => {
       setSocialMedia(data.socialMedia || []);
       setStore(data.store || null);
       setNavLinks(data.navLinks || []);  // Set the navLinks data
+      setSponsors(data.sponsors || []);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -69,9 +75,10 @@ export const DataProvider = ({ children }) => {
       footerLinks,
       store,
       navLinks,  // Provide navLinks in the context
+      sponsors, // Add sponsors to the context value
       setProduct, // Provide setProduct function in context
     }),
-    [loading, puzzles, product, products, services, reviews, team, socialMedia, footerLinks, store, navLinks]
+    [loading, puzzles, product, products, services, reviews, team, socialMedia, footerLinks, store, navLinks, sponsors]
   );
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
