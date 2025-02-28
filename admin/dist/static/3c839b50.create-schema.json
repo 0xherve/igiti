@@ -589,6 +589,37 @@
         "description": "Image of the intended product highlight",
         "name": "image",
         "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to sponsor's website",
+        "name": "link",
+        "type": "url",
+        "title": "Website Link"
       }
     ],
     "name": "sponsors",

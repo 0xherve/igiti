@@ -34,7 +34,8 @@ export const DataProvider = ({ children }) => {
         "navLinks": *[_type == "navLinks"] | order(order asc),
         "sponsors": *[_type == "sponsors"]{
           name,
-          "image": image.asset->url
+          "image": image.asset->url,
+          link
         }
       }`;
 

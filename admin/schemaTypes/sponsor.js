@@ -16,6 +16,13 @@ export default {
                 type: "image",
                 description: "Image of the intended product highlight",
                 validation: Rule => Rule.required() 
+              },
+              {
+                name: "link",
+                title: "Website Link",
+                type: "url",
+                description: "Link to sponsor's website",
+                validation: Rule => Rule.required()
               }
         ],
     preview: {
