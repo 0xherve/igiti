@@ -1,22 +1,23 @@
-import { star } from '../assets/icons'
+import { star } from '../assets/icons';
+import Card from './Card';
 
-const PopularProductCard = ( {link, imgURL, name, price, rating, description}) => {
-  return (
-    <a href={link}>
-      <div className="product-card mb-8">
-      <img src={imgURL} alt={name} className='w-[350px] h-auto rounded-xl object-contain' />
-      <div className=" flex justify-center gap-2">
-        <img src={star} alt="rating" width={24} height={24} />
-        <p className='font-montserrat text-xl 
-        leading-normal text-slate-gray'>{rating}</p> 
-        </div>
-        <h3 className=' text-2xl leading-normal font-semibold font-palanquin'>{name}</h3>
-        <p className=' mt-1 font-semibold font-montserrat text-orange-500 text-2xl leading-normal'>{price}</p>
-        <p className='mt-2 popular-text'>{description}</p>
+const PopularProductCard = ({ link, imgURL, name, price, rating, description }) => (
+  <Card href={link} className="flex h-full flex-col gap-5 p-6 text-center transition-colors hover:border-brand-400">
+    <div className="flex h-64 items-center justify-center rounded-xl bg-surface p-4">
+      {imgURL && <img loading="lazy" decoding="async" src={imgURL} alt={name} className="max-h-full max-w-full object-contain" />}
     </div>
-    </a>
-   
-  )
-}
+    <div className="flex flex-1 flex-col items-center gap-3">
+      {rating != null && (
+        <div className="flex items-center gap-2 text-lg text-muted">
+          <img src={star} alt="" width={20} height={20} />
+          <span>{rating}</span>
+        </div>
+      )}
+      <h3 className="font-palanquin text-2xl font-semibold leading-snug">{name}</h3>
+      {description && <p className="line-clamp-3 text-base leading-relaxed text-muted">{description}</p>}
+      <p className="mt-auto pt-2 text-xl font-semibold text-brand-600">{price}</p>
+    </div>
+  </Card>
+);
 
-export default PopularProductCard
+export default PopularProductCard;

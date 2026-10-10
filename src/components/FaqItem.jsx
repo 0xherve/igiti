@@ -1,45 +1,37 @@
 import { Disclosure } from '@headlessui/react';
 import { minus, plus } from '../assets/icons';
+import { cardClass } from './Card';
 
 const FaqItem = ({ data }) => {
-  const { sections } = data;
+  const sections = data.sections || [];
+  if (!sections.length) return <p>No FAQs available</p>;
 
   return (
-    <div className='max-container my-4'>
-      <div className="w-full flex flex-col gap-5">
-        {sections && sections.length > 0 ? (
-          sections.map((item) => (
-            <Disclosure as="div" key={item.index} className="rounded-lg flex flex-col shadow-md min-w-fit h-auto p-8 font-montserrat bg-pale-blue">
-              <Disclosure.Button className="group flex w-full items-center justify-between gap-5 font-montserrat">
-                <span className="lg:text-2xl lg:font-medium text-black text-start group-hover:text-orange-400">
-                  {item.question}
-                </span>
-                <img src={plus} alt="Expand" className='faq-img group-data-[open]:hidden '/>
-              <img src={minus} alt="contract" className='faq-img group-data-[open]:block hidden'/>
-              </Disclosure.Button>
-              <Disclosure.Panel className="mt-3 font-medium text-lg text-gray-500">
-                {typeof item.answer === 'string' ? (
-                  <p>{item.answer}</p>
-                ) : (
-                  <div>
-                    {/* If the answer is an array, render its points */}
-                    <p>{item.answer[0]}</p>
-                    <ul className="list-disc ml-5">
-                      {item.answer.slice(1).map((point, index) => (
-                        <li key={index}>{point.point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {/* Render additional text if it exists */}
-                {item.text && <p className="mt-3">{item.text}</p>}
-              </Disclosure.Panel>
-            </Disclosure>
-          ))
-        ) : (
-          <p>No FAQs available</p>
-        )}
-      </div>
+    <div className="flex flex-col gap-4">
+      {sections.map((item) => (
+        <Disclosure as="div" key={item.index} className={`${cardClass} p-6 sm:p-8`}>
+          <Disclosure.Button className="group flex w-full items-center justify-between gap-6 text-left font-montserrat text-lg font-medium text-gray-900 hover:text-brand-500 sm:text-xl">
+            {item.question}
+            <img src={plus} alt="" className="size-6 shrink-0 group-data-open:hidden" />
+            <img src={minus} alt="" className="hidden size-6 shrink-0 group-data-open:block" />
+          </Disclosure.Button>
+          <Disclosure.Panel className="mt-4 font-montserrat text-lg text-muted">
+            {typeof item.answer === 'string' ? (
+              <p>{item.answer}</p>
+            ) : (
+              <>
+                <p>{item.answer[0]}</p>
+                <ul className="ml-5 list-disc">
+                  {item.answer.slice(1).map((point, index) => (
+                    <li key={index}>{point.point}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {item.text && <p className="mt-3">{item.text}</p>}
+          </Disclosure.Panel>
+        </Disclosure>
+      ))}
     </div>
   );
 };

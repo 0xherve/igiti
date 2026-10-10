@@ -1,10 +1,11 @@
+import Container from "../components/Container";
 import Terms from "../components/Terms"
 
 const Viewer = () => {
   return (
-    <div className="max-container my-auto">
+    <Container className="my-auto">
       <Terms/>
-    </div>
+    </Container>
   )
 }
 

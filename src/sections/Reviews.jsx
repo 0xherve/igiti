@@ -1,37 +1,24 @@
+import Container from '../components/Container';
 import ReviewCard from '../components/ReviewCard';
+import SectionHeading from '../components/SectionHeading';
 import { useData } from '../DataContext';
 
 const Reviews = () => {
   const { reviews } = useData();
+  // Duplicate the list so the marquee loops seamlessly.
+  const loop = [...reviews, ...reviews];
 
   return (
-    <section className="reviews-section">
-      <h3 className="font-palanquin text-center text-4xl font-bold">
-        What Our <span className="text-orange-400">Customers</span> Say?
-      </h3>
-      <p className="info-text m-auto mt-4 max-w-lg text-center">
-        Hear genuine stories from our customers about their exceptional experience with us.
-      </p>
-      <div className="reviews-container z-10">
-        <div className="reviews-content">
-          {reviews.map((review, index) => (
-            <ReviewCard
-              key={review.customerName + index} // added index to ensure unique key if names are duplicated
-              imgURL={review.imgURL}
-              customerName={review.customerName}
-              rating={review.rating}
-              feedback={review.feedback}
-            />
-          ))}
-          {/* Duplicate reviews for a seamless scroll effect */}
-          {reviews.map((review, index) => (
-            <ReviewCard
-              key={review.customerName + "-dup-" + index}
-              imgURL={review.imgURL}
-              customerName={review.customerName}
-              rating={review.rating}
-              feedback={review.feedback}
-            />
+    <section className="overflow-hidden">
+      <Container>
+        <SectionHeading description="Hear genuine stories from our customers about their exceptional experience with us.">
+          What Our <span className="text-brand-500">Customers</span> Say?
+        </SectionHeading>
+      </Container>
+      <div className="mt-12 overflow-hidden">
+        <div className="flex w-max animate-marquee gap-8 hover:[animation-play-state:paused] motion-reduce:animate-none">
+          {loop.map((review, index) => (
+            <ReviewCard key={index} customerName={review.customerName} rating={review.rating} feedback={review.feedback} />
           ))}
         </div>
       </div>

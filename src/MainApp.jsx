@@ -1,55 +1,57 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
 import Loader from './pages/Loader';
 import App from './App';
-import ErrorPage from './pages/ErrorPage';
-import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './sections/Footer';
-import Faq from './pages/Faq';
-import Viewer from './pages/Viewer';
 import ScrollTop from './components/ScrollTop';
-// import SanityStudio from './pages/SanityStudio';
+import { DataProvider, useData } from './DataContext.jsx';
 
-import { DataProvider, useData } from './DataContext.jsx'; // Import the context provider and hook
-import PrivacyPolicy from './components/PrivacyPolicy.jsx';
-import TermsConditions from './components/termsConditions.jsx';
-import Sponsors from './sections/Sponsors';
+const Contact = lazy(() => import('./pages/Contact'));
+const ErrorPage = lazy(() => import('./pages/ErrorPage'));
+const Faq = lazy(() => import('./pages/Faq'));
+const Viewer = lazy(() => import('./pages/Viewer'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy.jsx'));
+const TermsConditions = lazy(() => import('./components/termsConditions.jsx'));
+const Sponsors = lazy(() => import('./sections/Sponsors'));
 
 const MainAppContent = () => {
-  const { loading } = useData(); // Access loading from DataContext
-
-  if (loading) {
-    return <Loader />; // Show loader until all data is loaded
-  }
+  const { error, retryLoad } = useData();
 
   return (
     <Router>
       <Navbar />
       <ScrollTop />
-      <main className="mx-auto">
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/contact" element={<Contact />} className="mt-24" />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/return-policy" element={<Viewer />} />          
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-conditions" element={<TermsConditions />} />
-          <Route path="/sponsors" element={<Sponsors />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </main>
+      {error && (
+        <div role="alert" className="mx-auto mt-4 flex max-w-3xl items-center justify-between gap-4 rounded-lg bg-amber-100 p-4 text-sm">
+          <span>{error} Showing available content.</span>
+          <button type="button" className="underline" onClick={retryLoad}>Retry</button>
+        </div>
+      )}
+      <Suspense fallback={<Loader />}>
+        <main className="mx-auto">
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/return-policy" element={<Viewer />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/sponsors" element={<Sponsors />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </main>
+      </Suspense>
       <Footer />
     </Router>
   );
 };
 
-const MainApp = () => {
-  return (
-    <DataProvider> {/* Wrap MainAppContent in DataProvider to provide data context */}
-      <MainAppContent />
-    </DataProvider>
-  );
-};
+const MainApp = () => (
+  <DataProvider>
+    <MainAppContent />
+  </DataProvider>
+);
 
 export default MainApp;
