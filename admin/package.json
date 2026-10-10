@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "main": "package.json",
   "license": "UNLICENSED",
+  "packageManager": "bun@1.4.2",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
+    "lint": "eslint . --max-warnings 0",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
@@ -15,25 +17,25 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/client": "^6.22.2",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.62.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sanity": "^3.62.3",
-    "styled-components": "^6.1.8"
+    "@sanity/vision": "^6.18.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.18.0",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^4.0.0",
-    "@types/react": "^18.0.25",
-    "eslint": "^8.6.0",
-    "prettier": "^3.0.2",
-    "typescript": "^5.1.6"
+    "@sanity/eslint-config-studio": "^7.0.0",
+    "eslint": "^10.12.0",
+    "prettier": "^3.0.2"
   },
   "prettier": {
     "semi": false,
     "printWidth": 100,
     "bracketSpacing": false,
     "singleQuote": true
+  },
+  "engines": {
+    "node": ">=22.22.0",
+    "bun": ">=1.4.2"
   }
 }

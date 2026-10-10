@@ -1,14 +1,12 @@
-// index.js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import '@fontsource-variable/montserrat/wght.css';
+import '@fontsource/palanquin/latin-400.css';
+import '@fontsource/palanquin/latin-600.css';
+import '@fontsource/palanquin/latin-700.css';
 import './index.css';
 import MainApp from './MainApp';
-import './styles/sponsors.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  
-  <React.StrictMode>
-    <MainApp />
-  </React.StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode><MainApp /></StrictMode>
 );

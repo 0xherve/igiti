@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+export default function ScrollTop() {
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
-    const exceptionRoutes = ['/#about-us'];
-    if( !exceptionRoutes.includes(pathname)){
-      window.scrollTo(0, 0);}  }, [pathname])
-    
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    let id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch { /* Keep malformed fragments literal. */ }
+    document.getElementById(id)?.scrollIntoView();
+  }, [pathname, hash, key]);
 
   return null;
-};
-
-export default ScrollToTop;
+}

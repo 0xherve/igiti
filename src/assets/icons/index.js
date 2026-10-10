@@ -1,33 +1,6 @@
-import arrowRight from './arrow-right.svg'
-import chevronLeft from './chevron-left.svg'
-import cheveronRight from './chevron-right.svg'
-import copyrightSign from './copyright-sign.svg'
-import facebook from './facebook.svg'
-import hamburger from './hamburger.svg'
-import instagram from './instagram.svg'
-import support from './support.svg'
-import shieldTick from './shield-tick.svg'
-import star from './star.svg'
-import truckFast from './truck-fast.svg'
-import twitter from './twitter.svg'
-import tiktok from './tiktok.svg'
-import plus from './plus.svg'
-import minus from './minus.svg' 
-
-export {
-    arrowRight,
-    cheveronRight,
-    chevronLeft,
-    copyrightSign,
-    facebook,
-    hamburger,
-    instagram,
-    support,
-    shieldTick,
-    star,
-    truckFast,
-    twitter,
-    tiktok,
-    plus,
-    minus,
-}
+export { default as arrowRight } from './arrow-right.svg';
+export { default as copyrightSign } from './copyright-sign.svg';
+export { default as hamburger } from './hamburger.svg';
+export { default as star } from './star.svg';
+export { default as minus } from './minus.svg';
+export { default as plus } from './plus.svg';

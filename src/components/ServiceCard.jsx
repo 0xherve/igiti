@@ -1,17 +1,15 @@
-import React from 'react'
+import Card from './Card';
 
-const ServiceCard = ({imgURL, label, subtext}) => {
-  return (
-    <div className='service-contain gap-4'>
-        <div className='flex items-center justify-between gap-8 space-x-evenly'> 
-          <div className='service-img'> 
-            <img src={imgURL} alt={label} width={24} height={24} />
-        </div>
-        <h1 className='text-2xl text-right font-semibold text-orange-500'>{label}</h1>
-        </div>
-        <p className='service-text text-center'>{subtext}</p>
+const ServiceCard = ({ imgURL, label, subtext }) => (
+  <Card className="flex flex-col gap-4 p-8">
+    <div className="flex items-center gap-4">
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-500">
+        <img src={imgURL} alt="" width={24} height={24} />
+      </span>
+      <h3 className="text-xl font-semibold text-brand-500">{label}</h3>
     </div>
-  )
-}
+    <p className="text-base leading-7 text-muted">{subtext}</p>
+  </Card>
+);
 
 export default ServiceCard;

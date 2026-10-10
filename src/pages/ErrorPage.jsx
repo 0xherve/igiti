@@ -1,19 +1,12 @@
-import { useRouteError } from "react-router-dom";
+import { Link } from 'react-router';
+import Container from '../components/Container';
 
-export default function ErrorPage() {
-  const error = useRouteError();
-  console.error(error);
+const ErrorPage = () => (
+  <Container as="section" className="py-section text-center font-montserrat">
+    <h1 className="text-4xl font-bold text-brand-500">Page not found</h1>
+    <p className="my-6 text-lg text-muted">This page does not exist.</p>
+    <Link to="/" className="font-semibold underline">Back to home</Link>
+  </Container>
+);
 
-  return (
-    <div className="flex justify-center justify-self-center py-24 xl:px-48 max-xl:px-8 mt-24">
-        <div id="error-page" className="h-full w-full max-md:w-fit flex flex-col justify-between items-center gap-20 bg-pale-blue p-10 leading-24 rounded-3xl shadow-xl">
-      <h1 className="text-4xl font-montserrat font-bold text-orange-400">Oops!</h1>
-      <p className="font-montserrat font-bold text-xl">Sorry, an error has occurred.</p>
-      <p className="font-montserrat font-semibold text-lg">
-        <i>Page {error.statusText || error.message}</i>
-      </p>
-    </div>
-    </div>
-    
-  );
-}
+export default ErrorPage;

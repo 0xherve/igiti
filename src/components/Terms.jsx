@@ -5,17 +5,17 @@ const Terms = () => {
     <div className="container mx-auto px-4 lg:py-12 max-w-7xl flex flex-col font-montserrat">
       {/* Title Section */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-semibold text-orange-400 mb-4">{policyData.title}</h1>
+        <h1 className="text-4xl font-semibold text-brand-400 mb-4">{policyData.title}</h1>
         <p className="lg:text-lg max-lg:text-start font-medium text-gray-700">{policyData.description}</p>
       </div>
-      
+
       {/* Sections */}
       <div className="space-y-8">
         {policyData.sections.map((section, index) => (
-          <div key={index} className="border-b border-orange-200 pb-6">
+          <div key={index} className="border-b border-brand-200 pb-6">
             {/* Section Heading */}
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">{section.heading}</h2>
-            
+
             {/* Handling Points */}
             {section.points ? (
               section.points.map((point, subIndex) => (

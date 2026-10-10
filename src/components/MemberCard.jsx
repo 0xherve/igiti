@@ -1,14 +1,11 @@
-const MemberCard = ({role, name, imgURL}) => {
-  return (
-    <div className='member-card'>
-        <img src={imgURL} alt={name}
-        className='team-img' />
-        <div className='member-info'>
-          <h3 className='member-info_h3'>{name}</h3>
-          <p className='member-info_p'>{role}</p>
-        </div>
-    </div>
-  )
-}
+import Card from './Card';
 
-export default MemberCard
+const MemberCard = ({ role, name, imgURL }) => (
+  <Card className="flex flex-col items-center p-8 text-center">
+    <img loading="lazy" decoding="async" src={imgURL} alt={name} className="mb-5 size-36 rounded-full object-cover" />
+    <h3 className="font-palanquin text-2xl font-bold">{name}</h3>
+    <p className="mt-1 font-montserrat font-medium text-muted">{role}</p>
+  </Card>
+);
+
+export default MemberCard;

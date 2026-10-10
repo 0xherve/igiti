@@ -1,18 +1,12 @@
-import FaqItem from "../components/FaqItem"
-import  faq  from "../assets/faq.json"
+import Container from '../components/Container';
+import FaqItem from '../components/FaqItem';
+import faq from '../assets/faq.json';
 
-const Faq = () => {
-  return (
-    <div>
-        <h1 className="flex text-center justify-center text-2xl text-orange-400 font-montserrat font-bold m-5 ">
-            Frequently asked Questions
-        </h1>
-        <div className="border-4 border-[#fff5f1] p-5 my-4 mx-10 rounded-3xl">
-        <FaqItem data= {faq}/>
-    </div>
-    </div>
-    
-  )
-}
+const Faq = () => (
+  <Container as="section" className="py-section">
+    <h1 className="mb-10 text-center font-montserrat text-3xl font-bold text-brand-500">Frequently asked Questions</h1>
+    <FaqItem data={faq} />
+  </Container>
+);
 
-export default Faq
+export default Faq;

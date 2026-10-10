@@ -1,37 +1,32 @@
-import { useState } from 'react';
+import Container from '../components/Container';
+import SectionHeading from '../components/SectionHeading';
+import SiteLink from '../components/SiteLink';
+import { urlFor } from '../assets/sanityClient';
 import { useData } from '../DataContext';
 
 const Sponsors = () => {
-  const { sponsors, loading } = useData();
-
-  if (loading || !sponsors?.length) return null;
-
-  const handleSponsorClick = (link) => {
-    if (link) {
-      window.open(link, '_blank', 'noopener,noreferrer');
-    }
-  };
+  const { sponsors } = useData();
+  if (!sponsors.length) return null;
 
   return (
-    <section className="sponsors-section">
-      <h2 className="text-4xl font-bold text-center mb-12">Our Partners</h2>
-      <div className="max-w-7xl mx-auto">
-        <div className="sponsors-container">
-          <div className="sponsors-content">
-            {sponsors.map((sponsor, index) => (
-              <img 
-                key={index} 
-                src={sponsor.image}
-                alt={sponsor.name}
-                className="sponsor-item cursor-pointer"
-                onClick={() => handleSponsorClick(sponsor.link)}
-                title={`Visit ${sponsor.name}'s website`}
-              />
-            ))}
-          </div>
-        </div>
+    <Container>
+      <SectionHeading>Our Partners</SectionHeading>
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-10">
+        {sponsors.map((sponsor) => (
+          <SiteLink key={sponsor._id} href={sponsor.link} target="_blank" title={`Visit ${sponsor.name}`}>
+            <img
+              loading="lazy"
+              decoding="async"
+              src={urlFor(sponsor.image, 250)?.url()}
+              alt={sponsor.name}
+              width={125}
+              height={105}
+              className="h-[105px] w-[125px] object-contain grayscale transition duration-300 hover:grayscale-0"
+            />
+          </SiteLink>
+        ))}
       </div>
-    </section>
+    </Container>
   );
 };
 

@@ -1,83 +1,78 @@
+import { useEffect, useRef } from "react";
 import { useData } from "../DataContext.jsx";
 import Button from "../components/Button";
-import Loader from "../pages/Loader";
 import { arrowRight } from '../assets/icons';
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
-// import { useEffect } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
-
 const Hero = () => {
-  const { loading, store } = useData();
+  const { store } = useData();
+  const frameRef = useRef(null);
+  const videoRef = useRef(null);
 
-  if (loading) return <Loader />;
+  useEffect(() => {
+    const video = videoRef.current;
+    const frame = frameRef.current;
+    if (!video || !frame) return;
 
-  const videoSrc1 = "videos/hero-1.mp4";
-  const videoSrc2 = "videos/hero-2.mp4";
-
-  useGSAP(() => {
-    gsap.set("#video-frame", {
-      clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
-      borderRadius: "0% 0% 40% 10%",
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let isVisible = false;
+    const updatePlayback = () => {
+      if (reduceMotion.matches || !isVisible || document.hidden) {
+        video.pause();
+      } else {
+        video.play().catch(() => {});
+      }
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      updatePlayback();
     });
-    gsap.from("#video-frame", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      borderRadius: "0% 0% 0% 0%",
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: "#video-frame",
-        start: "center center",
-        end: "bottom center",
-        scrub: true,
-      },
-    });
-  });
+    const onVisibilityChange = () => updatePlayback();
+    observer.observe(frame);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    reduceMotion.addEventListener("change", updatePlayback);
+    updatePlayback();
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      reduceMotion.removeEventListener("change", updatePlayback);
+      video.pause();
+    };
+  }, []);
 
   return (
     <section id="home">
-      <div className="relative h-dvh w-screen overflow-x-hidden">
-  {/* Video Frame with Overlay */}
-  <div
-    id="video-frame"
-    className="relative h-dvh w-screen overflow-hidden rounded-lg bg-black-200"
-  >
-    {/* Background Video */}
-    <video
-      src={videoSrc1}
-      autoPlay
-      loop
-      muted
-      className="absolute left-0 top-0 h-full w-full object-cover"
-    />
-    <video
-      src={videoSrc2}
-      autoPlay
-      loop
-      muted
-      className="absolute left-0 top-0 h-full w-full object-cover opacity-0"
-    />
-
-    {/* Dark Overlay with Hint of Orange */}
-    <div className="absolute inset-0 bg-black bg-opacity-70 mix-blend-multiply" />
-    <div className="absolute inset-0 bg-orange-500 bg-opacity-10 mix-blend-multiply" />
-
-    {/* Content */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20 px-5">
-      <div className="my-28">
-       <h1 className="special-font hero-heading text-blue-100 mb-12">Bringing <b>A</b>frica to <strong className="text-orange-400">Life</strong></h1> 
-       <h3 className="text-slate-300 font-medium text-3xl">Journey through Africa, Piece by Piece</h3>
+      <div className="relative min-h-[100svh] w-full overflow-hidden">
+        <div
+          id="video-frame"
+          ref={frameRef}
+          className="relative min-h-[100svh] w-full overflow-hidden rounded-lg bg-black"
+        >
+          <video
+            ref={videoRef}
+            src="/videos/hero-1.mp4"
+            playsInline
+            preload="none"
+            poster="/videos/hero-poster.webp"
+            loop
+            muted
+            aria-hidden="true"
+            className="absolute left-0 top-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-brand-500/10 mix-blend-multiply" />
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 pt-28 pb-12 text-center">
+            <div className="mb-8 max-w-4xl">
+              <h1 className="mb-6 font-sans text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[1.1] text-balance text-on-dark">Bringing Africa to <strong className="text-brand-400">Life</strong></h1>
+              <h3 className="text-xl sm:text-3xl font-medium text-slate-300">Journey through Africa, Piece by Piece</h3>
+            </div>
+            <Button
+              label={store?.label || "Shop Now"}
+              iconURL={arrowRight}
+              link={store?.link || "https://buy.igiti.africa/"}
+            />
+          </div>
+        </div>
       </div>
-      <Button
-        label={store?.label || "Shop Now"}
-        iconURL={arrowRight}
-        link={store?.link || "https://buy.igiti.africa/"}
-      />
-    </div>
-  </div>
-</div>
-
     </section>
   );
 };

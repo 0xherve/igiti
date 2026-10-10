@@ -1,49 +1,44 @@
-import Button from '../components/Button'
-import {adults} from '../assets/images'
-import {useData} from '../DataContext'
-import ShoeCard from "../components/ShoeCard";
-import { urlFor } from "../assets/sanityClient";
+import Button from '../components/Button';
+import Container from '../components/Container';
+import ShoeCard from '../components/ShoeCard';
+import { useData } from '../DataContext';
+import { urlFor } from '../assets/sanityClient';
 
 const SuperQuality = () => {
   const { puzzles, product, setProduct, store } = useData();
+
   return (
-    
-    <section id="about-us" 
-    className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container">
-      <div className="flex flex-1 flex-col gap-16 text-xl">
-        <h2 className="font-palanquin font-bold capitalize text-4xl lg:max-w-lg">
-           Igniting <span> </span>
-          <span className="text-orange-500 inline-block"> Creativity</span>, celebrating culture. </h2>
-          <p className="lg:max-w-lg info-text">
-          With a commitment to providing high-quality, culturally relevant products, our team is dedicated to creating experiences that enrich lives and spark imagination.</p>
-          <div>
-          <Button label="Shop Now" link={'https://buy.igiti.africa/' || store.link}></Button>
-          </div>
+    <Container className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="flex flex-col gap-8">
+        <h2 className="font-palanquin text-4xl font-bold capitalize leading-tight">
+          Igniting <span className="text-brand-500">Creativity</span>, celebrating culture.
+        </h2>
+        <p className="max-w-lg text-lg leading-7 text-muted">
+          With a commitment to providing high-quality, culturally relevant products, our team is dedicated to creating
+          experiences that enrich lives and spark imagination.
+        </p>
+        <div>
+          <Button label="Shop Now" link={store?.link || 'https://buy.igiti.africa/'} />
+        </div>
       </div>
-      <div className="hero-img max-lg:mx-2">
+
+      <div className="flex flex-col items-center gap-6">
         {product && (
-          <img
-            src={product}
-            alt="Puzzle Collection"
-            width={450} height={350}
-            className="relative z-5 rounded-3xl scale-y-95"
-          />
+          <img src={product} alt="Puzzle collection" className="aspect-[4/5] w-full max-w-md rounded-card object-cover" />
         )}
-
-        <div className="hero-pics">
+        <div className="grid w-full max-w-md grid-cols-4 gap-3">
           {puzzles.map((item, index) => (
-            <div key={index}>
-              <ShoeCard
-                imgURL={urlFor(item.thumbnail).url()}
-                changeBigShoeImg={setProduct}
-                bigShoeImg={product}
-              />
-            </div>
+            <ShoeCard
+              key={index}
+              imgURL={urlFor(item.thumbnail, 240)?.url()}
+              changeBigShoeImg={setProduct}
+              bigShoeImg={product}
+            />
           ))}
-        </div> 
+        </div>
       </div>
-    </section>
-  )
-}
+    </Container>
+  );
+};
 
-export default SuperQuality
+export default SuperQuality;

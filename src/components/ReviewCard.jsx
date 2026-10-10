@@ -1,24 +1,13 @@
-import React from 'react'
-import { star } from '../assets/icons'
+import { star } from '../assets/icons';
+import Card from './Card';
 
-const ReviewCard = ({imgURL, customerName, rating, feedback}) => {
-  return (
-    <div className='review-card z-10 w-full'>
+const ReviewCard = ({ customerName, rating, feedback }) => (
+  <Card className="flex w-[min(85vw,384px)] shrink-0 flex-col items-center gap-4 p-8 text-center">
+    <p className="line-clamp-4 text-base leading-7 text-muted">{feedback}</p>
+    <img src={star} alt="" width={24} height={24} />
+    <p className="font-montserrat text-xl font-medium text-muted">{rating}</p>
+    <h3 className="font-palanquin text-2xl font-bold">{customerName}</h3>
+  </Card>
+);
 
-    {/* {imgURL ? {
-      <img src={imgURL} alt={customerName}
-        className='rounded-full object-cover 
-        w-[120px] height-[120px]' /> */} 
-        <p className='mt-8 max-w-2xl text-center info-text feedback'>{ feedback }</p>
-        <div className='mt-3 flex flex-col justify-center items-center gap-2.5'>
-            <img src={star} width={24} height={24}
-            className='object-contain m-0' />
-            <p className='font-montserat text-slate-gray font-medium text-xl'>{rating}</p>
-            <h3 className='mt-1 font-palanquin text-3xl
-            text-center  font-bold'>{customerName}</h3>
-        </div>
-    </div>
-  )
-}
-
-export default ReviewCard
+export default ReviewCard;
