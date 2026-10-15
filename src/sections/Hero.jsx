@@ -65,11 +65,20 @@ const Hero = () => {
               <h1 className="mb-6 font-sans text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[1.1] text-balance text-on-dark">Bringing Africa to <strong className="text-brand-400">Life</strong></h1>
               <h3 className="text-xl sm:text-3xl font-medium text-slate-300">Journey through Africa, Piece by Piece</h3>
             </div>
-            <Button
-              label={store?.label || "Shop Now"}
-              iconURL={arrowRight}
-              link={store?.link || "https://buy.igiti.africa/"}
-            />
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Button
+                label="Play Igiti"
+                iconURL={arrowRight}
+                link="https://play.igiti.africa"
+                className="bg-green-800 hover:bg-green-900"
+              />
+              <Button
+                label={store?.label || "Shop Now"}
+                iconURL={arrowRight}
+                link={store?.link || "https://buy.igiti.africa/"}
+                className="bg-brand-500 hover:bg-brand-600"
+              />
+            </div>
           </div>
         </div>
       </div>
