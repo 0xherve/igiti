@@ -30,8 +30,13 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <div className="max-sm:hidden">
-        <Button label={store?.label || 'Shop Now'} link={store?.link || 'https://buy.igiti.africa'} />
+      <div className="hidden items-center gap-2 sm:flex">
+        <Button
+          label="Play Igiti"
+          link="https://play.igiti.africa"
+          className="bg-green-800 px-4 py-3 text-sm hover:bg-green-900"
+        />
+        <Button label={store?.label || 'Shop Now'} link={store?.link || 'https://buy.igiti.africa'} className="px-4 py-3 text-sm" />
       </div>
 
       <div className="lg:hidden">
