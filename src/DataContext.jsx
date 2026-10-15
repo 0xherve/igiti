@@ -9,20 +9,23 @@ const fallbackNavLinks = [
   { href: '/faq', label: 'FAQ' },
 ];
 const fallbackStore = { label: 'Shop Now', link: 'https://buy.igiti.africa' };
-const query = `{
-  "puzzles": *[_type == "puzzles"]{imgName, thumbnail},
-  "products": *[_type == "products"],
-  "services": *[_type == "services"],
-  "reviews": *[_type == "reviews"] | order(rating desc),
-  "team": *[_type == "team"] | order(rank asc),
-  "footerLinks": *[_type == "footerLinks"] | order(order asc),
-  "socialMedia": *[_type == "socials"],
-  "store": *[_type == "store"][0],
-  "navLinks": *[_type == "navLinks"] | order(order asc),
-  "sponsors": *[_type == "sponsors"]{ _id, name, image, link }
-}`;
 
-export const DataProvider = ({ children }) => {
+// Fetch each content type independently. A malformed or unavailable Sanity query for
+// one section must not prevent the rest of the published homepage from rendering.
+const contentQueries = {
+  puzzles: '*[_type == "puzzles"]{imgName, thumbnail}',
+  products: '*[_type == "products"]',
+  services: '*[_type == "services"]',
+  reviews: '*[_type == "reviews"] | order(rating desc)',
+  team: '*[_type == "team"] | order(rank asc)',
+  footerLinks: '*[_type == "footerLinks"] | order(order asc)',
+  socialMedia: '*[_type == "socials"]',
+  store: '*[_type == "store"][0]',
+  navLinks: '*[_type == "navLinks"] | order(order asc)',
+  sponsors: '*[_type == "sponsors"]{ _id, name, image, link }',
+};
+
+const DataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [retry, setRetry] = useState(0);
@@ -46,33 +49,56 @@ export const DataProvider = ({ children }) => {
     const timeout = setTimeout(() => {
       timedOut = true;
       controller.abort();
-    }, 10000);
+    }, 12000);
+
+    const setters = {
+      puzzles: (data) => {
+        const items = Array.isArray(data) ? data : [];
+        setPuzzles(items);
+        setProduct(items[0]?.thumbnail ? urlFor(items[0].thumbnail)?.url() ?? null : null);
+      },
+      products: (data) => setProducts(Array.isArray(data) ? data : []),
+      services: (data) => setServices(Array.isArray(data) ? data : []),
+      reviews: (data) => setReviews(Array.isArray(data) ? data : []),
+      team: (data) => setTeam(Array.isArray(data) ? data : []),
+      footerLinks: (data) => setFooterLinks(Array.isArray(data) ? data : []),
+      socialMedia: (data) => setSocialMedia(Array.isArray(data) ? data : []),
+      store: (data) => setStore(data || null),
+      navLinks: (data) => setNavLinks(Array.isArray(data) && data.length ? data : fallbackNavLinks),
+      sponsors: (data) => setSponsors(Array.isArray(data) ? data : []),
+    };
 
     setLoading(true);
     setError(null);
-    client.fetch(query, {}, { signal: controller.signal })
-      .then((data) => {
-        setPuzzles(data.puzzles || []);
-        setProduct(data.puzzles?.[0]?.thumbnail ? urlFor(data.puzzles[0].thumbnail)?.url() ?? null : null);
-        setProducts(data.products || []);
-        setServices(data.services || []);
-        setReviews(data.reviews || []);
-        setTeam(data.team || []);
-        setFooterLinks(data.footerLinks || []);
-        setSocialMedia(data.socialMedia || []);
-        setStore(data.store || null);
-        setNavLinks(data.navLinks?.length ? data.navLinks : fallbackNavLinks);
-        setSponsors(data.sponsors || []);
-      })
-      .catch((fetchError) => {
-        if (controller.signal.aborted && !timedOut) return;
-        console.error('Error fetching data:', fetchError);
-        setError(timedOut ? 'The content server took too long to respond.' : 'Some content could not be loaded.');
-      })
-      .finally(() => {
-        clearTimeout(timeout);
-        if (!controller.signal.aborted || timedOut) setLoading(false);
-      });
+
+    Promise.allSettled(
+      Object.entries(contentQueries).map(async ([key, query]) => ({
+        key,
+        data: await client.fetch(query, {}, { signal: controller.signal }),
+      })),
+    ).then((results) => {
+      if (controller.signal.aborted && !timedOut) return;
+
+      const failedSections = [];
+      for (const result of results) {
+        if (result.status === 'fulfilled') {
+          setters[result.value.key](result.value.data);
+        } else {
+          failedSections.push(result.reason);
+          console.error('Sanity content query failed:', result.reason);
+        }
+      }
+
+      setError(failedSections.length
+        ? 'Some website content could not be loaded. Other available sections are still shown.'
+        : null);
+    }).catch((fetchError) => {
+      console.error('Unexpected error while loading Sanity content:', fetchError);
+      setError('Website content could not be loaded. Please retry.');
+    }).finally(() => {
+      clearTimeout(timeout);
+      if (!controller.signal.aborted || timedOut) setLoading(false);
+    });
 
     return () => {
       clearTimeout(timeout);
@@ -102,4 +128,4 @@ export const DataProvider = ({ children }) => {
 };
 
 export const useData = () => useContext(DataContext);
-export { DataContext };
+export { DataContext, DataProvider };
