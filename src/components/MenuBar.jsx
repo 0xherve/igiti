@@ -59,6 +59,17 @@ const MenuBar = () => {
                   </SiteLink>
                 </li>
               ))}
+              <li>
+                <SiteLink
+                  href="https://play.igiti.africa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center rounded-full bg-green-800 px-4 py-3 font-semibold text-white hover:bg-green-900"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Play Igiti
+                </SiteLink>
+              </li>
               {store && (
                 <li>
                   <SiteLink
